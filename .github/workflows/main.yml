@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Create JAR file
+      run: |
+        # Get the repository name for the JAR filename
+        REPO_NAME=$(basename "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+        JAR_NAME="${REPO_NAME}-${GITHUB_SHA:0:7}.jar"
+        
+        # Create the JAR file (JAR is just a ZIP file)
+        zip -r "${JAR_NAME}" . -x "*.git*" -x ".github/*" -x "*.pyc" -x "__pycache__/*"
+        
+        # Also create a version without the commit hash
+        zip -r "${REPO_NAME}.jar" . -x "*.git*" -x ".github/*" -x "*.pyc" -x "__pycache__/*"
+        
+        echo "JAR_NAME=${JAR_NAME}" >> $GITHUB_ENV
+        echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+        
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: eternalheros-jar
+        path: |
+          *.jar
+        retention-days: 30
+
