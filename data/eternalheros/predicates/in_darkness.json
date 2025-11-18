@@ -1,0 +1,13 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "location": {
+      "light": {
+        "type": "block",
+        "max": 3
+      }
+    }
+  }
+}
+

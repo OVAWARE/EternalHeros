@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "IBI",
+        "   "
+    ],
+    "key": {
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "B": {
+            "item": "minecraft:blue_stained_glass_pane"
+        }
+    },
+    "result": {
+        "item": "eternalheros:scanner",
+        "count": 1
+    }
+  }

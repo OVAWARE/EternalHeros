@@ -1,0 +1,565 @@
+Overworld:
+bonemeal beam/aura 
+
+Nether:
+fireball
+intentional game design (explosive)
+dash strike
+
+Geiger:
+Radiation Beam (Should it be mekanism or alexs caves or both?)
+
+
+
+Create a tool used to build palladium superpowers, it will accept a file upload of a docs.json as the palladium documenation that it can referense (and at the end check to ensure the power is correct) heres an example of docs.json
+```
+{
+  "abilities": {
+    "lanterncorps:teleport": {
+      "id": "lanterncorps:teleport",
+      "name": "teleport",
+      "description": "",
+      "settings": [
+        {
+          "name": "icon",
+          "type": "IIcon",
+          "description": "Icon for the ability",
+          "required": false,
+          "default": "ItemIcon{stack=1 ender_pearl}"
+        },
+        {
+          "name": "title",
+          "type": "Component",
+          "description": "Allows you to set a custom title for this ability",
+          "required": false,
+          "default": "/"
+        },
+        {
+          "name": "bar_color",
+          "type": "AbilityColor",
+          "description": "Changes the color of the ability in the ability bar. Possible values: [white, orange, magenta, light_blue, yellow, lime, pink, gray, light_gray, cyan, purple, blue, brown, green, red, black]",
+          "required": false,
+          "default": "LIGHT_GRAY"
+        },
+        {
+          "name": "hidden",
+          "type": "Boolean",
+          "description": "Determines if the ability is visible in the powers screen",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "hidden_in_bar",
+          "type": "Boolean",
+          "description": "Determines if the ability is visible in the ability bar on your screen",
+          "required": false,
+          "default": "false"
+        },
+        {
+          "name": "list_index",
+          "type": "Integer",
+          "description": "Determines the list index for custom ability lists. Starts at 0. Going beyond 4 (which is the 5th place in the ability) will start a new list. Keeping it at -1 will automatically arrange the abilities.",
+          "required": false,
+          "default": "-1"
+        },
+        {
+          "name": "gui_position",
+          "type": "Vec2",
+          "description": "Position of the ability in the ability menu. Leave null for automatic positioning. 0/0 is center",
+          "required": false,
+          "default": "/"
+        },
+        {
+          "name": "description",
+          "type": "AbilityDescription",
+          "description": "Description of the ability. Visible in ability menu",
+          "required": false,
+          "default": "/"
+        },
+        {
+          "name": "max_distance",
+          "type": "Integer",
+          "description": "Max distance that the player can teleport.",
+          "required": false,
+          "default": "10"
+        }
+      ],
+      "example": {
+        "type": "lanterncorps:teleport",
+        "icon": "minecraft:ender_pearl",
+        "title": "null",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": false,
+        "list_index": -1,
+        "gui_position": "null",
+        "description": "null",
+        "max_distance": 10
+      }
+    },
+```
+It should have a text input for the goal, heres a sample power so you understand
+
+Kratos
+```
+{
+  "name": "Kratos",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/netherite_block.png",
+  "icon": "eternalheros:textures/icon/kratos.png",
+  "gui_display_type": "tree",
+
+  "abilities": {
+    "identity": {
+      "type": "palladium:dummy",
+      "icon": "eternalheros:textures/icon/kratos.png",
+      "title": "God of War",
+      "description": "Bearer of the Blades of Chaos and the Leviathan Axe. Slayer of gods. Embodiment of strength and vengeance.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 0]
+    },
+
+    "strength_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:netherite_sword",
+      "title": "Might of Sparta",
+      "description": "Strength beyond gods, honed through endless battles.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [1, 0]
+    },
+
+    "base_attack": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "a19939e0-b8b7-76d9-a8f7-2061e066a001",
+      "amount": 5
+    },
+
+    "strength_upgrade_1": {
+      "title": "Spartan Strength I",
+      "description": "Increases your attack damage by 10.",
+      "icon": "minecraft:iron_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "a19939df-8808-7af0-954e-aedca071a001",
+      "amount": 7,
+      "gui_position": [2, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 20},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_tree"}
+        ]
+      }
+    },
+    "strength_upgrade_2": {
+      "title": "Spartan Strength II",
+      "description": "Increases your attack damage by 10.",
+      "icon": "minecraft:diamond_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "a19939df-8808-7af0-954e-aedca071a002",
+      "amount": 10,
+      "gui_position": [3, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 40},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_1"}
+        ]
+      }
+    },
+    "strength_upgrade_3": {
+      "title": "Spartan Strength III",
+      "description": "Increases your attack damage by 10.",
+      "icon": "minecraft:netherite_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "a19939df-8808-7af0-954e-aedca071a003",
+      "amount": 10,
+      "gui_position": [4, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 50},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_2"}
+        ]
+      }
+    },
+
+    "defense_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:shield",
+      "title": "Guardian of Sparta",
+      "description": "Kratos’ indomitable resilience against gods and monsters.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [-1, 0]
+    },
+
+    "base_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "a19939e5-eaef-74e7-8ac8-829a87bea001",
+      "amount": 20
+    },
+    "armor_upgrade_1": {
+      "title": "Spartan Defense I",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:iron_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "a19939e5-eaef-74e7-8ac8-829a87bea002",
+      "gui_position": [-2, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 20},
+          {"type": "palladium:ability_unlocked", "ability": "defense_upgrade_tree"}
+        ]
+      }
+    },
+    "armor_upgrade_2": {
+      "title": "Spartan Defense II",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:diamond_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "a19939e5-eaef-74e7-8ac8-829a87bea003",
+      "gui_position": [-3, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 45},
+          {"type": "palladium:ability_unlocked", "ability": "armor_upgrade_1"}
+        ]
+      }
+    },
+    "armor_upgrade_3": {
+      "title": "Spartan Defense III",
+      "description": "Increases your armor by 10.",
+      "icon": "minecraft:netherite_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "uuid": "a19939e5-eaef-74e7-8ac8-829a87bea004",
+      "gui_position": [-4, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "armor_upgrade_2"}
+        ]
+      }
+    },
+
+    "base_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 2,
+      "uuid": "a19939ec-2d8e-7314-bc0a-2dcabe2c81a1"
+    },
+    "toughness_upgrade_1": {
+      "title": "Battle-Hardened I",
+      "description": "Increases your toughness by 5.",
+      "icon": "minecraft:iron_helmet",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "a19939ec-2d8e-7314-bc0a-2dcabe2c81a2",
+      "gui_position": [-2, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 35},
+          {"type": "palladium:ability_unlocked", "ability": "defense_upgrade_tree"}
+        ]
+      }
+    },
+    "toughness_upgrade_2": {
+      "title": "Battle-Hardened II",
+      "description": "Increases your toughness by 5.",
+      "icon": "minecraft:diamond_helmet",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "a19939ec-2d8e-7314-bc0a-2dcabe2c81a3",
+      "gui_position": [-3, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 55},
+          {"type": "palladium:ability_unlocked", "ability": "toughness_upgrade_1"}
+        ]
+      }
+    },
+
+    "base_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 20,
+      "uuid": "a19939f0-3ad7-7287-8883-7eb8bb4b55a1"
+    },
+    "health_upgrade_1": {
+      "title": "Warrior’s Vitality I",
+      "description": "Increases your health by 10.",
+      "icon": "minecraft:golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 10,
+      "uuid": "a19939f0-3ad7-7287-8883-7eb8bb4b55a2",
+      "gui_position": [-2, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 35},
+          {"type": "palladium:ability_unlocked", "ability": "defense_upgrade_tree"}
+        ]
+      }
+    },
+    "health_upgrade_2": {
+      "title": "Warrior’s Vitality II",
+      "description": "Increases your health by 10.",
+      "icon": "minecraft:enchanted_golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 10,
+      "uuid": "a19939f0-3ad7-7287-8883-7eb8bb4b55a3",
+      "gui_position": [-3, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 50},
+          {"type": "palladium:ability_unlocked", "ability": "health_upgrade_1"}
+        ]
+      }
+    },
+    "health_upgrade_3": {
+      "title": "Warrior’s Vitality III",
+      "description": "Increases your health by 10.",
+      "icon": "minecraft:enchanted_golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 10,
+      "uuid": "a19939f0-3ad7-7287-8883-7eb8bb4b55a4",
+      "gui_position": [-4, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "health_upgrade_2"}
+        ]
+      }
+    },
+    "health_upgrade_4": {
+      "title": "Warrior’s Vitality IV",
+      "description": "Increases your health by 20.",
+      "icon": "minecraft:enchanted_golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 20,
+      "uuid": "a19939f0-3ad7-7287-8883-7eb8bb4b55a5",
+      "gui_position": [-5, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 80},
+          {"type": "palladium:ability_unlocked", "ability": "health_upgrade_3"}
+        ]
+      }
+    },
+
+    "ability_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:nether_star",
+      "title": "Godly Abilities",
+      "description": "Powers of a god unleashed.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 1]
+    },
+
+    "block": {
+      "type": "pantheonsent:moon_knight_blocking",
+      "icon": "minecraft:shield",
+      "title": "Block",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "description": "null",
+      "gui_position": [0, 2],
+      "conditions": {
+      "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 30},
+          {"type": "palladium:ability_unlocked", "ability": "ability_upgrade_tree"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 500,
+            "needs_empty_hand": true,
+            "allow_scrolling_when_crouching": true
+          }
+        ]
+      }
+    },
+
+
+    "grab": {
+      "type": "eternalheros:telekinesis",
+      "hidden_in_bar": false,
+      "title": "Grab",
+      "list_index": 1,
+      "distance": 1.0,
+      "strength": 0.2,
+      "gui_position": [0, 3],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 50},
+          {"type": "palladium:ability_unlocked", "ability": "block"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 500,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+      
+    },
+
+
+    "kratos_skin": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:skin_change",
+      "texture": "eternalheros:textures/skins/kratos.png",
+      "model_type": "KEEP"
+    },
+
+
+
+    "groundslam": {
+      "type": "eternalheros:groundslam",
+      "title": "Groundslam",
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "strength": 4,
+      "range": 7,
+      "gui_position": [0, 4],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "grab"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 600,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+      
+    },
+
+    "groundslam_visuals": {
+      "type": "palladium:command",
+      "hidden": true,
+      "fist_tick_commands": ["playsound minecraft:entity.generic.explode master @s ~ ~ ~ 11 1.1", "particle minecraft:explosion ~ ~ ~ 1 1 1 1 10"],
+      "commands": [""],
+      "conditions": {
+        "unlocking": [{
+          "type": "palladium:ability_enabled",
+          "ability": "groundslam"
+        },
+        {"type": "palladium:on_ground"}
+      ]
+      }
+    },
+
+
+        "mobility_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:golden_boots",
+      "title": "Godly Speed",
+      "description": "Powers of a god unleashed.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, -1]
+    },
+
+
+      "leap": {
+      "type": "fsang:leap",
+      "icon": "minecraft:rabbit_foot",
+      "title": "Leap",
+     "gui_position": [0, -2],
+      "bar_color": "green",
+      "list_index": 4,
+      "hidden": false,
+      "hidden_in_bar": false,
+      "conditions":{
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 25},
+          {"type": "palladium:ability_unlocked", "ability": "mobility_upgrade_tree"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 20
+          },
+          {"type": "palladium:on_ground"}
+        ]
+      }
+    },
+
+
+
+
+    "spartan_rage": {
+      "title": "Spartan Rage",
+      "description": "Unleash your fury. Gain Strength V, Resistance IV, and Regeneration II for 30 seconds.",
+      "type": "palladium:command",
+      "list_index": 3,
+      "commands": [
+        "effect give @s minecraft:strength 30 4 true",
+        "effect give @s minecraft:resistance 30 3 true",
+        "effect give @s minecraft:regeneration 30 3 true"
+      ],
+      "icon": "minecraft:totem_of_undying",
+      "gui_position": [0, 5],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 70},
+          {"type": "palladium:ability_unlocked", "ability": "groundslam"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 2400,
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ]
+      }
+    },
+
+    "advanced_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "frequency": 20,
+      "amount": 4
+    }
+  }
+}
+```

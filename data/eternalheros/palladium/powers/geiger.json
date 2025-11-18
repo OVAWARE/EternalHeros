@@ -1,0 +1,1107 @@
+{
+    "name": "Nuclear Fission",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/netherite_block.png",
+    "icon": "fsang:textures/icon/gui/powers/kratos.png",
+    "gui_display_type": "tree",
+    "energy_bars": {
+        "nuclear_energy": {
+            "max": 10000,
+            "color": "#fc8803",
+            "synced_value": {
+                "type": "score",
+                "objective": "EternalHeros.NuclearFusion.energy",
+                "fallback": 0
+            }
+        }
+    },
+    "abilities": {
+        "init": {
+            "title": "Nuclear Fusion",
+            "description": "The Living Core",
+            "gui_position": [
+                0,
+                0
+            ],
+            "hidden": false,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [],
+            "first_tick_command": [
+                "scoreboard objectives add EternalHeros.NuclearFusion.energy dummy"
+            ]
+        },
+        "passive_heating": {
+            "hidden": true,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 1"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:interval",
+                        "active_ticks": 1,
+                        "disabled_ticks": 39
+                    }
+                ]
+            }
+        },
+        "passive_heating_nether": {
+            "hidden": true,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 2"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:dimension",
+                        "dimension": "minecraft:the_nether"
+                    }
+                ]
+            }
+        },
+        "passive_heating_lava": {
+            "hidden": true,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 8"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:in_lava"
+                    }
+                ]
+            }
+        },
+        "passive_heating_fire": {
+            "hidden": true,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 4"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:is_on_fire"
+                    }
+                ]
+            }
+        },
+
+
+
+        "ability_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:redstone",
+      "title": "Ability Upgrade Tree",
+      "description": "Technology goes far",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        0,
+        1
+      ]
+        },
+        "water_cooling": {
+            "title": "Water Cooling",
+            "description": "Keeps the core cool whenever possible",
+            "gui_position": [
+                1,
+                2
+            ],
+            "hidden": false,
+            "hidden_in_bar": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players remove @s EternalHeros.NuclearFusion.energy 1",
+                "particle minecraft:bubble_pop ~ ~1 ~ 0.5 0.5 0.5 0 1",
+                "playsound minecraft:block.fire.extinguish ambient @s ~ ~ ~"
+
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:in_water"
+                },
+            "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 30},
+          {"type": "palladium:ability_unlocked", "ability": "ability_upgrade_tree"},
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 2
+                    }
+        ]
+            }
+        },
+        "beam_power_selector": {
+            "type": "palladium:ability_wheel",
+            "title": "Beam Power Selection",
+            "description": "Switch between radiation beam outputs",
+            "icon": "minecraft:tnt",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "abilities": [
+                "select_radiation_1",
+                "select_radiation_2",
+                "select_radiation_3",
+                "select_radiation_4"
+            ],
+            "texture": "null",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:crouching"
+                    }
+                ]
+            }
+        },
+        "select_radiation_1": {
+            "type": "palladium:command",
+            "title": "Select Output 1",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "gui_position": [
+                -1,
+                2
+            ],
+            "commands": [
+                "playsound minecraft:block.beacon.power_select ambient @s ~ ~ ~ 1 0.5",
+                "tag @s add Radiation.Mode1",
+                "tag @s remove Radiation.Mode2",
+                "tag @s remove Radiation.Mode3",
+                "tag @s remove Radiation.Mode4"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "ability_upgrade_tree"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ]
+            }
+        },
+        "select_radiation_2": {
+            "type": "palladium:command",
+            "title": "Select Output 2",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "gui_position": [
+                -1,
+                3
+            ],
+            "commands": [
+                "playsound minecraft:block.beacon.power_select ambient @s ~ ~ ~ 1 1.0",
+                "tag @s add Radiation.Mode2",
+                "tag @s remove Radiation.Mode1",
+                "tag @s remove Radiation.Mode3",
+                "tag @s remove Radiation.Mode4"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "select_radiation_1"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ]
+            }
+        },
+        "select_radiation_3": {
+            "type": "palladium:command",
+            "title": "Select Output 3",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "gui_position": [
+                -1,
+                4
+            ],
+            "commands": [
+                "playsound minecraft:block.beacon.power_select ambient @s ~ ~ ~ 1 1.5",
+                "tag @s add Radiation.Mode3",
+                "tag @s remove Radiation.Mode1",
+                "tag @s remove Radiation.Mode2",
+                "tag @s remove Radiation.Mode4"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "select_radiation_2"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ]
+            }
+        },
+        "select_radiation_4": {
+            "type": "palladium:command",
+            "title": "Select Output 4",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "gui_position": [
+                -1,
+                5
+            ],
+            "commands": [
+                "playsound minecraft:block.beacon.power_select ambient @s ~ ~ ~ 1 2.0",
+                "tag @s add Radiation.Mode4",
+                "tag @s remove Radiation.Mode1",
+                "tag @s remove Radiation.Mode2",
+                "tag @s remove Radiation.Mode3"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "select_radiation_3"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ]
+            }
+        },
+        "radiation_mode_1": {
+            "type": "palladium:dummy",
+            "icon": "minecraft:tnt",
+            "title": "Radiation — Output 1",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 200,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode1"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "radiation_mode_2": {
+            "type": "palladium:dummy",
+            "icon": "minecraft:tnt",
+            "title": "Radiation — Output 2",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 200,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode2"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "radiation_mode_3": {
+            "type": "palladium:dummy",
+            "icon": "minecraft:tnt",
+            "title": "Radiation — Output 3",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 200,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode3"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "radiation_mode_4": {
+            "type": "palladium:dummy",
+            "icon": "minecraft:tnt",
+            "title": "Radiation — Output 4",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 200,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode4"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "radiation_beam_1": {
+            "type": "palladium:energy_beam",
+            "title": "Output 1",
+            "list_index": 0,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 1,
+            "commands_on_entity_hit": [
+                "effect give @e[distance=..1] alexscaves:irradiated 1 0 true"
+            ],
+            "commands_on_block_hit": [
+                "effect give @e[distance=..1] alexscaves:irradiated 1 0 true"
+            ],
+            "energy_beam": "eternalheros:radiation",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_mode_1"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode1"
+                    }
+                ]
+            }
+        },
+        "heatup_beam_1": {
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 5"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_beam_1"
+                    }
+                ]
+            }
+        },
+        "radiation_beam_2": {
+            "type": "palladium:energy_beam",
+            "title": "Output 2",
+            "list_index": 0,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 5,
+            "commands_on_entity_hit": [
+                "effect give @e[distance=..2] alexscaves:irradiated 5 1 true"
+            ],
+            "commands_on_block_hit": [
+                "effect give @e[distance=..2] alexscaves:irradiated 5 1 true"
+            ],
+            "energy_beam": "eternalheros:radiation",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_mode_2"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode2"
+                    }
+                ]
+            }
+        },
+        "heatup_beam_2": {
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 10"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_beam_2"
+                    }
+                ]
+            }
+        },
+        "radiation_beam_3": {
+            "type": "palladium:energy_beam",
+            "title": "Output 3",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": 0,
+            "damage": 10,
+            "commands_on_entity_hit": [
+                "effect give @e[distance=..2] alexscaves:irradiated 10 2 true"
+            ],
+            "commands_on_block_hit": [
+                "effect give @e[distance=..2] alexscaves:irradiated 10 2 true"
+            ],
+            "energy_beam": "eternalheros:radiation",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_mode_3"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode3"
+                    }
+                ]
+            }
+        },
+        "heatup_beam_3": {
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 20"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_beam_3"
+                    }
+                ]
+            }
+        },
+        "radiation_beam_4": {
+            "type": "palladium:energy_beam",
+            "title": "Output 4",
+            "list_index": 0,
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 30,
+            "commands_on_entity_hit": [
+                "effect give @e[distance=..2, type=!tnt] alexscaves:irradiated 10 2 true",
+                "summon tnt"
+            ],
+            "commands_on_block_hit": [
+                "effect give @e[distance=..2, type=!tnt] alexscaves:irradiated 10 2 true",
+                "summon tnt"
+            ],
+            "energy_beam": "eternalheros:radiation",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_mode_4"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "Radiation.Mode4"
+                    }
+                ]
+            }
+        },
+        "heatup_beam_4": {
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 100"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "radiation_beam_4"
+                    }
+                ]
+            }
+        },
+        "charge":{
+            "type": "fsang:drain_per_tick",
+            "icon": "fsang:textures/icon/gui/powers/electrokinesis_charge.png",
+            "title": "Charge Item",
+            "bar_color": "red",
+            "gui_position": [
+                0,
+                2
+            ],
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "energy": 1000,
+            "curios_slot": "null",
+            "trinket_slot": "null",
+            "armor_or_hand_slot": "mainhand",
+            "mode": "add",
+            "conditions":{
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ],
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "ability_upgrade_tree"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ]
+            }
+        },
+        "charge_heat":{
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "scoreboard players add @s EternalHeros.NuclearFusion.energy 10"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "charge"
+                    }
+                ]
+            }
+        },
+
+        "vent_steam": {
+            "title": "Vent Steam",
+            "hidden": true,
+            "description": "Release a massive amount of steam to rapidly cool your core. Renders you slow and weak for a short duration.",
+            "type": "palladium:command",
+            "icon": "minecraft:flint_and_steel",
+            "list_index": 2,
+            "commands": [
+                "scoreboard players remove @s EternalHeros.NuclearFusion.energy 5",
+                "effect give @s minecraft:slowness 5 4 true",
+                "effect give @s minecraft:weakness 5 2 true",
+                "particle minecraft:cloud ~ ~1 ~ 1 1 1 0.1 20 normal",
+                "playsound minecraft:entity.generic.explode block @s ~ ~ ~ 0.5 2.0",
+                "mek radiation add 0.000001 ~ ~ ~"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "key_type": "key_bind"
+                    }
+                ],
+                "unlocking": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 50
+                    }
+                ]
+            }
+        },
+
+
+
+
+        "mobility_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:iron_boots",
+      "title": "Mobility Upgrade Tree",
+      "description": "The jetpacks!",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        0,
+        -1
+      ]
+        },
+        "enable_flight": {
+            "type": "palladium:attribute_modifier",
+            "title": "Nuclear Flight",
+            "description": "Use the heat from your core to propel yourself through the air. Gets faster the hotter you are.",
+            "icon": "minecraft:feather",
+            "list_index": 2,
+            "gui_position": [
+                1,
+                -2
+            ],
+            "attribute": "palladium:heroic_flight_type",
+            "amount": 1,
+            "operation": 0,
+            "conditions": {
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "mobility_upgrade_tree"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ],
+                "enabling":                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 2500
+                    }
+            }
+        },
+        "flight_speed_scaling": {
+            "type": "fsang:stat_ability",
+            "hidden": true,
+            "Attribute_Type": "palladium:flight_speed",
+            "score_value": "EternalHeros.NuclearFusion.energy",
+            "Division_Amount": "5000",
+            "Attribute_Mod": "addition",
+            "UUID": "f8a4b1e0-3e2c-4b5a-8d3f-9e7c1a2b3d4e",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "enable_flight"
+                    }
+                ]
+            }
+        },
+
+
+
+        "strength_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:netherite_sword",
+      "title": "Geiger Upgrade Strength",
+      "description": "Strength beyond gods, honed through endless battles.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [1, 0]
+
+        },
+        "enable_strength": {
+            "type": "palladium:attribute_modifier",
+            "hidden": false,
+            "title": "Nuclear Strength",
+            "description": "Use the heat from your core to propel yourself through the air. Gets faster the hotter you are.",
+            "icon": "minecraft:diamond_sword",
+            "gui_position": [
+                2,
+                0
+            ],
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            "operation": 0,
+            "conditions": {
+                "unlocking": [
+                    {"type": "palladium:ability_unlocked","ability": "strength_upgrade_tree"},
+                    {"type": "palladium:experience_level_buyable", "xp_level": 30}
+                ],
+                "enabling":                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 2500
+                    }
+            }
+        },
+        "strength_scaling": {
+            "type": "fsang:stat_ability",
+            "hidden": true,
+            "Attribute_Type": "minecraft:generic.attack_damage",
+            "score_value": "EternalHeros.NuclearFusion.energy",
+            "Division_Amount": "500",
+            "Attribute_Mod": "addition",
+            "UUID": "e1b8f235-24fc-4124-b257-2ffeba3928d3",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "enable_strength"
+                    }
+                ]
+            }
+        },
+
+
+        "radiation_immunity": {
+            "type": "palladium:command",
+            "hidden": true,
+            "commands": [
+                "mek radiation reduce @s 0.05",
+                "effect clear @s alexscaves:irradiated"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "max": 7500
+                    }
+                ]
+            }
+        },
+
+
+
+
+        "reactor_hum": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "minecraft:block.conduit.ambient.short",
+            "looping": true,
+            "volume": 0.5,
+            "pitch": 0.5,
+            "play_self": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 2500
+                    }
+                ]
+            }
+        },
+        "reactor_hum_warning": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "minecraft:entity.minecart.riding",
+            "looping": true,
+            "volume": 0.1,
+            "pitch": 0.1,
+            "play_self": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 6000
+                    }
+                ]
+            }
+        },
+        "reactor_hum_critical_1": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "mekanism:tile.machine.industrial_alarm",
+            "looping": true,
+            "volume": 0.1,
+            "pitch": 1,
+            "play_self": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 8500
+                    }
+                ]
+            }
+        },
+        "reactor_hum_critical_2": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "mekanism:tile.machine.industrial_alarm",
+            "looping": true,
+            "volume": 1,
+            "pitch": 1,
+            "play_self": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 9500
+                    }
+                ]
+            }
+        },
+        "reactor_hum_critical_final": {
+            "type": "palladium:play_sound",
+            "hidden": true,
+            "sound": "mekanism:tile.machine.industrial_alarm",
+            "looping": true,
+            "volume": 2,
+            "pitch": 1,
+            "play_self": true,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 9900
+                    }
+                ]
+            }
+        },
+        "core_energy": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "title @s actionbar [{\"text\":\"Core Energy: \",\"color\":\"green\"},{\"score\":{\"objective\":\"EternalHeros.NuclearFusion.energy\",\"name\":\"*\"},\"scale\":0.01},{\"text\":\"%\",\"color\":\"green\"}]"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "max": 5000
+                    }
+                ]
+            }
+        },
+        "core_energy_caution": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "title @s actionbar [{\"text\":\"Core Energy: \",\"color\":\"yellow\"},{\"score\":{\"objective\":\"EternalHeros.NuclearFusion.energy\",\"name\":\"*\"},\"scale\":0.01},{\"text\":\" WARNING - Heat exciting safe levels\",\"color\":\"yellow\"}]"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 5000,
+                        "max": 9500
+                    },
+                                            {
+                            "type": "palladium:interval",
+                            "active_ticks": 40,
+                            "disabled_ticks": 10
+                        }
+
+                ]
+            }
+        },
+        "core_energy_critical": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "title @s actionbar [{\"text\":\"Core Energy: \",\"color\":\"red\"},{\"score\":{\"objective\":\"EternalHeros.NuclearFusion.energy\",\"name\":\"*\"},\"scale\":0.01},{\"text\":\" REACTOR CRITICAL - MELTDOWN IMMINENT\",\"color\":\"red\"}]",
+                "playsound minecraft:block.fire.extinguish ambient @s"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 9500,
+                        "max": 10000
+                    },
+
+
+                        {
+                            "type": "palladium:interval",
+                            "active_ticks": 10,
+                            "disabled_ticks": 10
+                        }
+
+
+
+                ]
+            }
+        },
+
+
+
+
+
+
+
+
+
+        "warning_1": {
+            "hidden": true,
+            "type": "palladium:command",
+            "commands": [
+                "effect give @s minecraft:hunger 1 9 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 8000
+                    }
+                ]
+            }
+        },
+
+
+
+        "warning_2": {
+            "hidden": true,
+            "type": "palladium:command",
+            "commands": [
+                "effect give @s alexscaves:irradiated infinite 1 true",
+                "mek radiation addEntity @s 0.0001"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 8500
+                    }
+                ]
+            }
+        },
+
+        "warning_3": {
+            "hidden": true,
+            "type": "palladium:command",
+            "commands": [
+                "effect give @e[distance=..10] alexscaves:irradiated 5 0 true",
+                "mek radiation add 0.00001 ~ ~ ~"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 8500
+                    }
+                ]
+            }
+        },
+        "warning_4":{
+            "type": "eternalheros:burn",
+            "hidden": true,
+            "range": 5,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 8500
+                    }
+                ]
+            }
+        },
+        "going_nuclear": {
+            "hidden": true,
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players set @s EternalHeros.NuclearFusion.energy 0",
+                "kill @s"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "nuclear_energy",
+                        "min": 10000
+                    }
+                ]
+            }
+        },
+        "nuclear_explosion": {
+            "hidden": true,
+            "type": "fsang:explosion",
+            "cause_fire": true,
+            "radius": 50,
+            "self_damage": 1,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "going_nuclear"
+                }
+            }
+        }
+    }
+}

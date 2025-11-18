@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A A",
+        "ARA",
+        "AAA"
+    ],
+    "key": {
+        "A": {
+            "item": "fsang:adamantium_ingot"
+        },
+        "R": {
+            "item": "fsang:iron_man_arc_reactor_1"
+        }
+    },
+    "result": {
+        "item": "eternalheros:tech_jacket",
+        "count": 1
+    }
+  }

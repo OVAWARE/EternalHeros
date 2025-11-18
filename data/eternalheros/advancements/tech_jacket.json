@@ -1,0 +1,33 @@
+{
+    "display": {
+        "title": {
+            "text": "Bound in Thorns",
+            "color": "red",
+            "bold": true,
+            "italic": false
+        },
+        "description": {
+            "text": "Obedience through pain. Devotion through blood."
+        },
+        "icon": {
+            "item": "eternalheros:thorn_ring"
+        },
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "grantadvancement": {
+            "trigger": "inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "eternalheros:thorn_ring"
+                    }
+                ]
+            }
+        }
+    },
+    "parent": "eternalheros:root"
+}

@@ -1,0 +1,74 @@
+{
+  "name": "Overworld",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/stone.png",
+  "icon": "minecraft:textures/items/grass_block.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+
+    "gaias_blessing": {
+      "type": "palladium:command",
+      "icon": "minecraft:totem_of_undying",
+      "title": "Gaia's Blessing",
+      "description": "The earth is your friend easily feeding you when on grass",
+      "commands": [
+        "effect give @s minecraft:saturation 2 0 true"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "eternalheros:gaia"
+        }
+      }
+    },
+
+
+    "stoneguard_block": {
+      "type": "pantheonsent:moon_knight_blocking",
+      "icon": "minecraft:shield",
+      "title": "Block",
+      "description": "Block the incoming damage",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 500,
+            "needs_empty_hand": true,
+            "allow_scrolling_when_crouching": true
+          }
+        ]
+      }
+    },
+
+    "seismic_shock": {
+      "type": "eternalheros:groundslam",
+      "icon": "minecraft:tnt",
+      "title": "Seismic Shock",
+      "description": "Create a seismic shockwave, knocking back nearby entities",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 100,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+
+    "miners_blessing": {
+      "type": "palladium:command",
+      "icon": "minecraft:diamond_pickaxe",
+      "title": "Miner's Blessing",
+      "description": "The taste of the earth is in your veins, giving haste and resistance",
+      "commands": [
+        "effect give @s minecraft:hate 10 1 true",
+        "effect give @s minecraft:resistance 10 0 true"
+      ]
+    }
+
+  }
+}

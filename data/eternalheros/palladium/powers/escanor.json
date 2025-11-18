@@ -1,0 +1,996 @@
+{
+  "name": "Escanor - The Lion's Sin of Pride",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/gold_block.png",
+  "icon": "minecraft:golden_apple",
+  "gui_display_type": "tree",
+  "energy_bars": {
+    "sunshine": {
+      "max": 10000,
+      "color": "#FFD700",
+      "synced_value": {
+        "type": "score",
+        "objective": "Escanor.Sunshine",
+        "fallback": 5000
+      }
+    }
+  },
+
+  "abilities": {
+    "init": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [],
+      "first_tick_commands": [
+        "scoreboard objectives add Escanor.Sunshine dummy",
+        "scoreboard players add @s Escanor.Sunshine 0"
+      ]
+    },
+    "identity": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:golden_apple",
+      "title": "Lion's Sin of Pride",
+      "description": "Bearer of Sunshine. Your power and size grow with the rising sun.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 0]
+    },
+
+    "no_secondary": {
+      "type": "palladium:dummy",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:has_power_tag", "tag": "eternalheros:secondary"}}
+        ]
+      }
+    },
+
+    "break_armor": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "item replace entity @s armor.head with minecraft:air",
+        "item replace entity @s armor.chest with minecraft:air",
+        "item replace entity @s armor.legs with minecraft:air",
+        "item replace entity @s armor.feet with minecraft:air",
+        "particle minecraft:flame ~ ~1 ~ 0.3 0.5 0.3 0.05 1"
+      ]
+    },
+
+    "base_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 0,
+      "uuid": "e5ca00f0-0000-0000-0000-000000000001"
+    },
+
+    "midnight_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-1111-0000-0000-000000000001",
+      "amount": 2,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 0, "max": 999}
+        ]
+      }
+    },
+
+    "midnight_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.0,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 0, "max": 999}
+        ]
+      }
+    },
+
+    "night_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-2222-0000-0000-000000000001",
+      "amount": 5,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 1000, "max": 2499}
+        ]
+      }
+    },
+
+    "night_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.0,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 1000, "max": 2499}
+        ]
+      }
+    },
+
+    "dawn_dusk_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-3333-0000-0000-000000000001",
+      "amount": 10,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "dawn_dusk_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "e5ca00f0-3333-0000-0000-000000000002",
+      "amount": 10,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "dawn_dusk_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-3333-0000-0000-000000000003",
+      "amount": 15,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "dawn_dusk_armor_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-3333-0000-0000-000000000004",
+      "amount": 5,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "dawn_dusk_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.0,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "morning_afternoon_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-4444-0000-0000-000000000001",
+      "amount": 20,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "morning_afternoon_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "e5ca00f0-4444-0000-0000-000000000002",
+      "amount": 20,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "morning_afternoon_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-4444-0000-0000-000000000003",
+      "amount": 30,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "morning_afternoon_armor_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-4444-0000-0000-000000000004",
+      "amount": 10,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "morning_afternoon_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.2,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "near_noon_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-5555-0000-0000-000000000001",
+      "amount": 35,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "near_noon_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "e5ca00f0-5555-0000-0000-000000000002",
+      "amount": 40,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "near_noon_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-5555-0000-0000-000000000003",
+      "amount": 45,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "near_noon_armor_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-5555-0000-0000-000000000004",
+      "amount": 15,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "near_noon_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.4,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "high_noon_stats": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "e5ca00f0-6666-0000-0000-000000000001",
+      "amount": 50,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "high_noon_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "uuid": "e5ca00f0-6666-0000-0000-000000000002",
+      "amount": 60,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "high_noon_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-6666-0000-0000-000000000003",
+      "amount": 60,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "high_noon_armor_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-6666-0000-0000-000000000004",
+      "amount": 20,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "high_noon_scale": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:size",
+      "scale": 1.6,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "knockback_resistance": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.knockback_resistance",
+      "uuid": "e5ca00f0-7777-0000-0000-000000000001",
+      "amount": 0.5,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500}
+        ]
+      }
+    },
+
+    "fire_immunity": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_fire"
+      ]
+    },
+
+    "ability_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:blaze_rod",
+      "title": "Pride's Arsenal",
+      "description": "The devastating abilities of the Lion's Sin.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 1]
+    },
+
+    "super_slash": {
+      "type": "palladium:command",
+      "icon": "minecraft:golden_axe",
+      "title": "Super Slash",
+      "description": "A super strong attack with your axe that does area damage. Costs 500 energy.",
+      "list_index": 0,
+      "hidden_in_bar": false,
+      "commands": [
+        "particle minecraft:sweep_attack ^ ^1 ^3 2 1 2 0.1 10",
+        "particle minecraft:flame ^ ^1 ^3 3 1 3 0.2 30",
+        "execute positioned ^ ^ ^3 as @e[type=!minecraft:player,distance=..4] run damage @s 40",
+        "execute positioned ^ ^ ^3 as @e[type=!minecraft:player,distance=..4] run effect give @s minecraft:slowness 5 3",
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 3 0.7",
+        "playsound minecraft:entity.lightning_bolt.thunder master @a ~ ~ ~ 2 1.2",
+        "scoreboard players remove @s Escanor.Sunshine 500"
+      ],
+      "gui_position": [1, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 20},
+          {"type": "palladium:ability_unlocked", "ability": "ability_tree"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 400,
+            "needs_empty_hand": false
+          },
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 500}
+        ]
+      }
+    },
+
+    "divine_sword": {
+      "type": "palladium:command",
+      "icon": "minecraft:golden_sword",
+      "title": "Divine Sword Escanor",
+      "description": "A downward swiping motion with your hand that can cut an opponent. Costs 300 energy.",
+      "list_index": 1,
+      "hidden_in_bar": false,
+      "commands": [
+        "particle minecraft:sweep_attack ^ ^2 ^2 0.5 1 0.5 0.1 5",
+        "particle minecraft:flame ^ ^2 ^2 0.5 1.5 0.5 0.1 15",
+        "execute positioned ^ ^1 ^2 as @e[type=!minecraft:player,distance=..2] run damage @s 30",
+        "playsound minecraft:entity.player.attack.sweep master @a ~ ~ ~ 2 1.2",
+        "scoreboard players remove @s Escanor.Sunshine 300"
+      ],
+      "gui_position": [2, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 30},
+          {"type": "palladium:ability_unlocked", "ability": "super_slash"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 300,
+            "needs_empty_hand": true
+          },
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 300}
+        ]
+      }
+    },
+
+    "divine_spear": {
+      "type": "palladium:command",
+      "icon": "minecraft:arrow",
+      "title": "Divine Spear Escanor",
+      "description": "Thrust your finger forward with enough force to pierce through armor. Costs 200 energy.",
+      "list_index": 2,
+      "hidden_in_bar": false,
+      "commands": [
+        "particle minecraft:crit ^ ^1.5 ^1 0 0 0 0.5 20 force",
+        "particle minecraft:flame ^ ^1.5 ^1 0 0 0 0.3 10 force",
+        "execute positioned ^ ^1.5 ^1 run summon minecraft:area_effect_cloud ~ ~ ~ {Duration:1,Tags:[\"divine_spear\"]}",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run tp @s ^ ^ ^0.5",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run tp @s ^ ^ ^0.5",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run tp @s ^ ^ ^0.5",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run tp @s ^ ^ ^0.5",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run tp @s ^ ^ ^0.5",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s as @e[type=!minecraft:player,type=!minecraft:area_effect_cloud,distance=..1.5] run damage @s 25 minecraft:generic",
+        "execute as @e[type=minecraft:area_effect_cloud,tag=divine_spear,limit=1,sort=nearest] at @s run particle minecraft:flame ~ ~ ~ 0.2 0.2 0.2 0.1 10",
+        "playsound minecraft:entity.arrow.shoot master @a ~ ~ ~ 2 0.8",
+        "scoreboard players remove @s Escanor.Sunshine 200"
+      ],
+      "gui_position": [3, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 40},
+          {"type": "palladium:ability_unlocked", "ability": "divine_sword"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 200,
+            "needs_empty_hand": true
+          },
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 200}
+        ]
+      }
+    },
+
+    "the_one_ability": {
+      "type": "palladium:command",
+      "icon": "minecraft:nether_star",
+      "title": "THE ONE",
+      "description": "Transform into THE ONE. Requires 8000 energy.",
+      "list_index": 3,
+      "hidden_in_bar": false,
+      "commands": [
+        "effect give @s minecraft:strength 30 10 true",
+        "effect give @s minecraft:resistance 30 5 true",
+        "effect give @s minecraft:regeneration 30 5 true",
+        "effect give @s minecraft:absorption 30 10 true",
+        "particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 1 5",
+        "particle minecraft:flame ~ ~1 ~ 2 2 2 0.5 200",
+        "playsound minecraft:entity.ender_dragon.growl master @a ~ ~ ~ 3 0.8",
+        "title @s title {\"text\":\"THE ONE\",\"color\":\"gold\",\"bold\":true}",
+        "scoreboard objectives add the_one_timer dummy",
+        "scoreboard players set @s the_one_timer 600",
+        "scoreboard players remove @s Escanor.Sunshine 8000"
+      ],
+      "gui_position": [4, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "divine_spear"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 3600,
+            "needs_empty_hand": false
+          },
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8000}
+        ]
+      }
+    },
+
+    "the_one_size": {
+      "type": "palladium:size",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scale": 1.8,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_armor": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-8888-0000-0000-000000000001",
+      "amount": 80,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_armor_toughness": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-8888-0000-0000-000000000002",
+      "amount": 25,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_countdown": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "scoreboard players remove @s the_one_timer 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_ultimate": {
+      "type": "palladium:command",
+      "icon": "minecraft:totem_of_undying",
+      "title": "THE ONE: Ultimate",
+      "description": "§c§lWARNING: Slowly kills you! Requires 6000 energy. Can be used anytime.",
+      "list_index": 4,
+      "hidden_in_bar": false,
+      "commands": [
+        "effect give @s minecraft:strength 60 15 true",
+        "effect give @s minecraft:resistance 60 6 true",
+        "effect give @s minecraft:regeneration 60 6 true",
+        "effect give @s minecraft:absorption 60 15 true",
+        "effect give @s minecraft:wither 60 3 false",
+        "particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 1 10",
+        "particle minecraft:flame ~ ~1 ~ 3 3 3 0.8 300",
+        "particle minecraft:soul_fire_flame ~ ~1 ~ 2 2 2 0.5 200",
+        "playsound minecraft:entity.wither.spawn master @a ~ ~ ~ 3 0.8",
+        "title @s title {\"text\":\"THE ONE: ULTIMATE\",\"color\":\"dark_red\",\"bold\":true}",
+        "title @s subtitle {\"text\":\"Burning Life Force\",\"color\":\"red\"}",
+        "scoreboard objectives add the_one_ult_timer dummy",
+        "scoreboard players set @s the_one_ult_timer 1200",
+        "scoreboard players remove @s Escanor.Sunshine 6000"
+      ],
+      "gui_position": [5, 1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 80},
+          {"type": "palladium:ability_unlocked", "ability": "the_one_ability"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 7200,
+            "needs_empty_hand": false
+          },
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6000}
+        ]
+      }
+    },
+
+    "the_one_ultimate_size": {
+      "type": "palladium:size",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "scale": 2.0,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_ult_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_ultimate_armor": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor",
+      "uuid": "e5ca00f0-9999-0000-0000-000000000001",
+      "amount": 100,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_ult_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_ultimate_armor_toughness": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "minecraft:generic.armor_toughness",
+      "uuid": "e5ca00f0-9999-0000-0000-000000000002",
+      "amount": 30,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_ult_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_ultimate_countdown": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "scoreboard players remove @s the_one_ult_timer 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_ult_timer matches 1.."}
+        ]
+      }
+    },
+
+    "the_one_ultimate_death": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "title @s title {\"text\":\"Life Force Depleted\",\"color\":\"dark_red\",\"bold\":true}",
+        "particle minecraft:soul ~ ~1 ~ 0.5 1 0.5 0.1 100",
+        "playsound minecraft:entity.wither.death master @a ~ ~ ~ 3 0.5",
+        "scoreboard players set @s the_one_ult_timer -1",
+        "kill @s"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:command_result", "command": "execute if score @s the_one_ult_timer matches 0"}
+        ]
+      }
+    },
+
+    "passive_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "frequency": 40,
+      "amount": 2,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500}
+        ]
+      }
+    },
+
+    "energy_drain_midnight": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players remove @s Escanor.Sunshine 50"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "fsang:time_based_condition", "start_time": 17000, "end_time": 19000}
+        ]
+      }
+    },
+
+    "energy_drain_night": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players remove @s Escanor.Sunshine 10"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:or", "conditions": [
+            {"type": "fsang:time_based_condition", "start_time": 19000, "end_time": 23000},
+            {"type": "fsang:time_based_condition", "start_time": 13000, "end_time": 17000}
+          ]}
+        ]
+      }
+    },
+
+    "energy_gain_dawn_dusk": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Escanor.Sunshine 3"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:or", "conditions": [
+            {"type": "fsang:time_based_condition", "start_time": 23000, "end_time": 2000},
+            {"type": "fsang:time_based_condition", "start_time": 10000, "end_time": 13000}
+          ]}
+        ]
+      }
+    },
+
+    "energy_gain_morning_afternoon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Escanor.Sunshine 10"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:or", "conditions": [
+            {"type": "fsang:time_based_condition", "start_time": 2000, "end_time": 4000},
+            {"type": "fsang:time_based_condition", "start_time": 8000, "end_time": 10000}
+          ]}
+        ]
+      }
+    },
+
+    "energy_gain_near_noon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Escanor.Sunshine 20"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:or", "conditions": [
+            {"type": "fsang:time_based_condition", "start_time": 4000, "end_time": 5500},
+            {"type": "fsang:time_based_condition", "start_time": 6500, "end_time": 8000}
+          ]}
+        ]
+      }
+    },
+
+    "energy_gain_high_noon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "scoreboard players add @s Escanor.Sunshine 50"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "fsang:time_based_condition", "start_time": 5500, "end_time": 6500}
+        ]
+      }
+    },
+
+    "energy_cap": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute if score @s Escanor.Sunshine matches 10001.. run scoreboard players set @s Escanor.Sunshine 10000",
+        "execute if score @s Escanor.Sunshine matches ..-1 run scoreboard players set @s Escanor.Sunshine 0"
+      ]
+    },
+
+    "night_particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "particle minecraft:smoke ~ ~1 ~ 0.1 0.3 0.1 0.01 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 0, "max": 2499}
+        ]
+      }
+    },
+
+    "dawn_dusk_particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "particle minecraft:flame ~ ~1 ~ 0.2 0.3 0.2 0.01 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "morning_afternoon_particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "particle minecraft:flame ~ ~1 ~ 0.3 0.5 0.3 0.02 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "near_noon_particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "particle minecraft:flame ~ ~1 ~ 0.4 0.7 0.4 0.03 1",
+        "particle minecraft:soul_fire_flame ~ ~1.5 ~ 0.2 0.3 0.2 0.01 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "noon_particles": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "particle minecraft:flame ~ ~1 ~ 0.5 1 0.5 0.05 1",
+        "particle minecraft:soul_fire_flame ~ ~1.5 ~ 0.3 0.5 0.3 0.03 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    },
+
+    "noon_notification": {
+      "type": "palladium:command",
+      "hidden": true,
+      "first_tick_commands": [
+        "title @s actionbar {\"text\":\"☀ Maximum Power! ☀\",\"color\":\"gold\",\"bold\":true}",
+        "playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1.5"
+      ],
+      "commands": [],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500, "max": 8550}
+        ]
+      }
+    },
+
+    "heat_aura_without_rhitta_dawn_dusk": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..3] run damage @s 1 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 0.8 0.3 0.8 0.01 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 2500, "max": 4499}
+        ]
+      }
+    },
+
+    "heat_aura_without_rhitta_morning": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..4] run damage @s 2 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 1 0.5 1 0.02 2"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 4500, "max": 6499}
+        ]
+      }
+    },
+
+    "heat_aura_without_rhitta_near_noon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..5] run damage @s 3 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 1.5 0.7 1.5 0.03 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 6500, "max": 8499}
+        ]
+      }
+    },
+
+    "heat_aura_without_rhitta_noon": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..6] run damage @s 5 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 2 1 2 0.05 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:energy_bar", "energy_bar": "sunshine", "min": 8500}
+        ]
+      }
+    }
+  }
+}

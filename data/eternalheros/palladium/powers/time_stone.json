@@ -1,0 +1,97 @@
+{
+    "name": "Time Stone",
+    "background": "minecraft:textures/block/green_concrete.png",
+    "icon": "minecraft:textures/block/green_wool.png",
+    "gui_display_type": "tree",
+    "abilities": {
+        "chrono_effects": {
+            "type": "palladium:command",
+            "title": "Chrono Effects",
+            "icon": "minecraft:textures/item/clock.png",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "commands": ["effect give @s fsang:time_effect 10 0 true"]
+        },
+        "time_forward": {
+            "type": "palladium:command",
+            "title": "Time Skip",
+            "icon": "minecraft:textures/item/clock.png",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "commands": [
+                "time add 10s"
+            ],
+            "conditions": {
+                "enabling": [
+                {
+                    "type": "palladium:held",
+                    "cooldown": 300,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false
+                },
+                {
+                    "type": "palladium:not",
+                    "condition": {
+                        "type": "palladium:crouching"
+                    }
+                }
+                ]
+            }
+        },
+        "time_rewind": {
+            "type": "palladium:command",
+            "title": "Time Rewind",
+            "icon": "minecraft:textures/item/clock.png",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "commands": [
+                "time add -10s"
+            ],
+            "conditions": {
+                "enabling": [
+                {
+                    "type": "palladium:held",
+                    "cooldown": 300,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+                ],
+                "unlocking": [
+                {
+                    "type": "palladium:crouching"
+                }
+                ]
+            }
+        },
+
+        "time_freeze": {
+            "type": "palladium:command",
+            "title": "Time Freeze",
+            "icon": "minecraft:textures/block/ice.png",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "commands": [
+                "execute at @s run execute as @e[distance=..10] run data modify entity @s Motion set value [0d,0d,0d]",
+                "effect give @s minecraft:weakness 5 255 true"
+            ],
+            "conditions": {
+                "enabling": [
+                {
+                    "type": "palladium:held",
+                    "cooldown": 200,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false
+                }
+                ]
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "Scanner",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/iron_block.png",
+    "icon": "fsang:textures/icon/gui/powers/homelander.png",
+    "gui_display_type": "list",
+
+    "abilities": {
+        "scanner": {
+            "type": "fsang:ability_list",
+            "icon": "minecraft:written_book",
+            "title": "Mental Detection",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "range": 20,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "right_click",
+                        "cooldown": 20,
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ]
+            }
+        }
+        
+    }
+}

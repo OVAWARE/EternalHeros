@@ -1,0 +1,40 @@
+{
+  "name": "End",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/end_stone.png",
+  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+
+      "ender_immunity": {
+        "type": "palladium:damage_immunity",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "damage_sources": [
+            "minecraft:is_explosion",
+            "minecraft:is_fall"
+        ]
+      },
+
+    "weightless":{
+
+    },
+
+    "levitation": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:levitation_speed",
+      "amount": 1
+    },
+
+    "teleport": {},
+
+    "dragon_breath": {},
+
+    "telekinsis":{
+
+    }
+      
+  }
+}
+

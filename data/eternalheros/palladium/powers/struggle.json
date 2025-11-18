@@ -1,0 +1,67 @@
+{
+    "name": "Struggle",
+    "persistent_data": false,
+    "background": "minecraft:textures/block/iron_block.png",
+    "icon": "fsang:textures/icon/gui/powers/homelander.png",
+    "gui_display_type": "list",
+    "energy_bars": {
+    "struggle": {
+        "max": 10,
+        "color": "#fc8803",
+            "synced_value": {
+            "type": "score",
+            "objective": "struggle",
+            "fallback": 0
+        }
+    }
+    },
+    "abilities": {
+        "init": {
+            "type": "palladium:command",
+            "commands": [],
+            "first_tick_command": ["scoreboard objectives add struggle dummy"]
+        },
+        "struggle": {
+            "type": "palladium:command",
+            "icon": "minecraft:written_book",
+            "title": "Mental Detection",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "commands": ["scoreboard players add @s struggle 1"],
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "range": 20,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:action",
+                        "key_type": "right_click",
+                        "cooldown": 1,
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                    }
+                ]
+            }
+        },
+        "break_free": {
+            "type": "palladium:command",
+            "commands": [
+                "scoreboard players set @s struggle 0",
+                "tag @s add broken_free",
+                "superpower remove eternalheros:struggle @s",
+                "playsound minecraft:entity.player.small_fall master @s ~ ~ ~ 1 2",
+                "particle minecraft:cloud ~ ~ ~ .5 1 .5 0 1"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:energy_bar",
+                        "energy_bar": "struggle",
+                        "min": 10
+                    }
+                ]
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,236 @@
+{
+  "name": "Nether",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/netherrack.png",
+  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+
+
+
+
+
+        "inferno_form": {
+          "type": "palladium:dummy",
+          "title": "Inferno Form",
+          "hidden": false,
+          "hidden_in_bar": false,
+          "list_index": 0,
+          "icon": "minecraft:flint_and_steel",
+          "conditions":{
+            "enabling": {
+              "type": "palladium:toggle",
+              "cooldown": 2400,
+              "key_type": "key_bind"
+            }
+          }
+        },
+
+        "inferno_form_com1": {
+          "type": "palladium:size",
+          "hidden": true,
+          "scale": 1,
+          "conditions": {
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com2": {
+          "type": "palladium:command",
+          "hidden": true,
+          "commands": ["particle minecraft:flame ~ ~ ~ 0.25 0.25 0.25 0 25"],
+          "conditions": {
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com3": {
+          "type": "palladium:attribute_modifier",
+          "hidden": true,
+          "attribute": "palladium:flight_speed",
+          "amount": 10,
+          "uuid": "99bdbd6f-3af3-404a-93f9-4c3f59920bb1",
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+    
+        "inferno_form_com4": {
+          "type": "palladium:invisibility",
+          "hidden": true,
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com5": {
+          "type": "palladium:attribute_modifier",
+          "hidden": true,
+          "attribute": "forge:entity_reach",
+          "amount": -1000,
+          "uuid": "6a612539-2cf0-422a-ad7e-ff85b2343eb9",
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com6": {
+          "type": "palladium:attribute_modifier",
+          "hidden": true,
+          "attribute": "forge:block_reach",
+          "amount": -1000,
+          "uuid": "4d025d21-1c3c-404c-affe-e1f27debfa46",
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com7": {
+          "type": "eternalheros:burn",
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+        "inferno_form_com8": {
+          "type": "palladium:command",
+          "commands": ["effect give @s minecraft:slow_falling 1 0 true"],
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "inferno_form"
+            }
+          }
+        },
+
+
+
+        "soul_harvest": {
+          "title": "Soul Harvest",
+          "type": "palladium:attribute_modifier",
+          "attribute": "attributeslib:life_steal",
+          "amount": 0.5
+        },
+
+
+
+        "nether_immunity": {
+        "type": "palladium:damage_immunity",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "damage_sources": [
+            "minecraft:is_explosion",
+            "minecraft:is_fire"
+        ]
+      },
+
+
+
+
+
+
+        "firestorm": {
+            "type": "palladium:projectile",
+            "icon": "minecraft:sand",
+            "title": "Firestorm",
+            "bar_color": "red",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "description": "Spew fire",
+            "entity_type": "palladium:custom_projectile",
+            "entity_data": {
+                "Damage": 0.5,
+                "Gravity": 0.0,
+                "Lifetime": 10,
+                "KnockbackStrength": 1,
+                "Appearances": [
+                    {
+                        "Type": "particles",
+                        "ParticleType": "minecraft:flame",
+                        "Spread": 0.0
+                    },
+                    {
+                        "Type": "particles",
+                        "ParticleType": "minecraft:flame",
+                        "Spread": 0.25
+                    }
+                ]
+            },
+            "inaccuracy": 0,
+            "velocity": 1.5,
+            "swinging_arm": "none",
+            "damage_from_player": false,
+            "ignore_player_movement": false,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 120,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    }
+                ],
+                "unlocking": {
+                  "type": "palladium:not",
+                  "conditions": [
+                    {
+                      "type": "palladium:ability_enabled",
+                      "ability": "inferno_form"
+                    }
+                  ]
+                }
+            }
+        },
+        "firestorm_ignite":{
+          "type": "palladium:energy_beam",
+          "hidden": true,
+          "damage": 0,
+          "set_on_fire_seconds": 5,
+          "max_distance": 15,
+          "cause_fire": true,
+          "smelt_blocks": true,
+          "conditions":{
+            "enabling": {
+              "type": "palladium:ability_enabled",
+              "ability": "firestorm"
+            }
+
+          }
+        }
+
+
+
+
+
+
+
+
+
+
+
+  }
+}

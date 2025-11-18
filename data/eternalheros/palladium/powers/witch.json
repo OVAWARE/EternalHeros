@@ -1,0 +1,168 @@
+{
+  "name": "Witcher",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/netherite_block.png",
+  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+    "night_vision":{
+        "type": "palladium:entity_glow",
+        "icon": "minecraft:glow_berries",
+        "mode": "self",
+        "distance": 50,
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:night_vision"
+            }
+        ]
+        }
+    },
+    "invisibility":{
+        "type": "palladium:invisibility",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:invisibility"
+            }
+        ]
+        }
+    },
+    "jump_boost":{
+        "type": "palladium:invisibility",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:jump_boost"
+            }
+        ]
+        }
+    },
+
+
+
+    "fire_resistance":{
+        "type": "palladium:invisibility",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:fire_resistance"
+            }
+        ]
+        }
+    },
+
+
+
+    "speed":{
+        "type": "palladium:attribute_modifier",
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 1,
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:speed"
+            }
+        ]
+        }
+    },
+    "speed_step":{
+        "type": "palladium:attribute_modifier",
+        "hidden": true,
+        "attribute": "forge:step_height_addition",
+        "amount": 1,
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:speed"
+            }
+        ]
+        }
+    },
+    "speed_trail":{
+        "type": "palladium:trail",
+        "trail": "eternalheros:speedtrail",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:speed"
+            }
+        ]
+        }
+    },
+
+
+    "water_breathing":{
+        "type": "palladium:invisibility",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:water_breathing"
+            }
+        ]
+        }
+    },
+
+    "regeneration":{
+        "type": "palladium:attribute_modifier",
+        "hidden": true,
+        "attribute": "attributeslib:life_steal",
+        "amount": 1,
+        "title": "Regeneration",
+        "description": "You are able to use those who you harm to regenerate yourself",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:regeneration"
+            }
+        ]
+        }
+    },
+
+
+    "strength":{
+        "type": "eternalheros:telekinesis",
+        "title": "Strength",
+        "description": "Use your advanced strength to pick up your enemies by the neck",
+        "conditions": {
+            "unlocking": [
+                {
+                "type": "palladium:has_effect",
+                "effect": "minecraft:strength"
+                }
+            ],
+            "enabling": [
+            {
+                "type": "palladium:held",
+                "key_type": "key_bind",
+                "cooldown": 2000,
+                "needs_empty_hand": false
+            }
+            ]
+        }
+    },
+
+
+    "slow_falling":{
+        "type": "palladium:invisibility",
+        "conditions": {
+        "unlocking": [
+            {
+            "type": "palladium:has_effect",
+            "effect": "minecraft:slow_falling"
+            }
+        ]
+        }
+    }
+  }
+}

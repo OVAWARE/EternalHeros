@@ -1,0 +1,74 @@
+{
+    "name": "Dimensional",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/netherite_block.png",
+    "icon": "fsang:textures/icon/gui/powers/kratos.png",
+    "gui_display_type": "tree",
+    "abilities": {
+
+        "overworld": {
+            "title": "Overworld",
+            "gui_position": [0, 0],
+            "icon": "minecraft:dirt",
+            "type": "palladium:command",
+            "first_tick_commands": [
+                "superpower add eternalheros:dimensional_overworld"
+            ],
+            "commands": [],
+            "last_tick_commands": [
+                "superpower remove eternalheros:dimensional_overworld"
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+            }
+        },
+
+
+
+        "nether": {
+            "title": "Nether",
+            "gui_position": [0, 1],
+            "icon": "minecraft:netherrack",
+            "type": "palladium:command",
+            "first_tick_commands": [
+                "superpower add eternalheros:dimensional_nether"
+            ],
+            "commands": [],
+            "last_tick_commands": [
+                "superpower remove eternalheros:dimensional_nether"
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+            }
+        },
+
+
+        "end": {
+            "title": "The End",
+            "gui_position": [0, -1],
+            "icon": "minecraft:end_stone",
+            "type": "palladium:command",
+            "first_tick_commands": [
+                "superpower add eternalheros:dimensional_end"
+            ],
+            "commands": [],
+            "last_tick_commands": [
+                "superpower remove eternalheros:dimensional_end"
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:dimension",
+                    "dimension": "minecraft:the_end"
+                }
+            }
+        }
+
+
+    }
+}

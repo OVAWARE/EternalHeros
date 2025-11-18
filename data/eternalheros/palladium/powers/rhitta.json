@@ -1,0 +1,257 @@
+{
+  "name": "Rhitta - Divine Axe",
+  "persistent_data": true,
+  "icon": "eternalheros:rhitta",
+  "description": "The Sacred Treasure of the Lion's Sin of Pride. Stores heat energy from the user's Sunshine.",
+
+  "abilities": {
+    "rhitta_requirement": {
+      "type": "palladium:dummy",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ]
+      }
+    },
+
+    "heat_storage_init": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard objectives add rhitta.heat dummy",
+        "scoreboard players add @s rhitta.heat 0"
+      ],
+      "commands": []
+    },
+
+    "heat_accumulation_while_held": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute if score @s Escanor.Sunshine matches 2500.. run scoreboard players add @s rhitta.heat 2",
+        "execute if score @s Escanor.Sunshine matches 6500.. run scoreboard players add @s rhitta.heat 1",
+        "execute if score @s Escanor.Sunshine matches 8500.. run scoreboard players add @s rhitta.heat 2"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"},
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ]
+      }
+    },
+
+    "heat_release_aura_low": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..3] run damage @s 1 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 0.8 0.5 0.8 0.02 2"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "offhand"}},
+          {"type": "palladium:command_result", "command": "execute if score @s rhitta.heat matches 1000..2999"},
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ]
+      }
+    },
+
+    "heat_release_aura_medium": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..4] run damage @s 2 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 1 0.7 1 0.03 3"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "offhand"}},
+          {"type": "palladium:command_result", "command": "execute if score @s rhitta.heat matches 3000..4999"},
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ]
+      }
+    },
+
+    "heat_release_aura_high": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute as @e[type=!minecraft:player,distance=..5] run damage @s 4 minecraft:on_fire",
+        "particle minecraft:flame ~ ~1 ~ 1.5 1 1.5 0.05 5",
+        "particle minecraft:soul_fire_flame ~ ~1.5 ~ 0.3 0.5 0.3 0.01 1"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}},
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "offhand"}},
+          {"type": "palladium:command_result", "command": "execute if score @s rhitta.heat matches 5000.."},
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ]
+      }
+    },
+
+    "heed_my_will": {
+      "type": "palladium:command",
+      "icon": "minecraft:recovery_compass",
+      "title": "Heed My Will",
+      "description": "Call Rhitta back to your hand.",
+      "list_index": 0,
+      "hidden_in_bar": false,
+      "commands": [
+        "give @s eternalheros:rhitta 1",
+        "particle minecraft:flame ~ ~1 ~ 1 1 1 0.1 30",
+        "playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 1 1.2",
+        "title @s actionbar {\"text\":\"Rhitta returns to your hand!\",\"color\":\"gold\",\"bold\":true}"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 600,
+            "needs_empty_hand": true
+          },
+          {"type": "palladium:not", "condition": {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}}
+        ]
+      }
+    },
+
+    "sacred_treasure_release": {
+      "type": "palladium:command",
+      "icon": "minecraft:tnt",
+      "title": "Sacred Treasure Release",
+      "description": "Release all stored energy as a devastating explosion. Requires 5000 stored energy.",
+      "list_index": 4,
+      "hidden_in_bar": false,
+      "commands": [
+        "execute if score @s rhitta.heat matches 5000.. run particle minecraft:explosion_emitter ~ ~1 ~ 3 1 3 1 20",
+        "execute if score @s rhitta.heat matches 5000.. run particle minecraft:flame ~ ~1 ~ 5 3 5 0.5 300",
+        "execute if score @s rhitta.heat matches 5000.. as @e[type=!minecraft:player,distance=..10] run damage @s 100 minecraft:explosion",
+        "execute if score @s rhitta.heat matches 5000.. run playsound minecraft:entity.generic.explode master @a ~ ~ ~ 5 0.5",
+        "execute if score @s rhitta.heat matches 5000.. run title @s actionbar {\"text\":\"Sacred Treasure Release!\",\"color\":\"gold\",\"bold\":true}",
+        "execute if score @s rhitta.heat matches 5000.. run scoreboard players set @s rhitta.heat 0",
+        "execute if score @s rhitta.heat matches ..4999 run title @s actionbar {\"text\":\"Not enough stored energy! (Need 5000)\",\"color\":\"red\"}"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 100,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+    "store_energy": {
+      "type": "palladium:command",
+      "icon": "minecraft:glowstone",
+      "title": "Store Energy in Rhitta",
+      "description": "Hold to transfer 1000 Sunshine energy into Rhitta for later use.",
+      "list_index": 2,
+      "hidden_in_bar": false,
+      "commands": [
+        "execute if score @s Escanor.Sunshine matches 1000.. run scoreboard players remove @s Escanor.Sunshine 1000",
+        "execute if score @s Escanor.Sunshine matches 1000.. run scoreboard players add @s rhitta.heat 1000",
+        "execute if score @s Escanor.Sunshine matches 1000.. run particle minecraft:flame ~ ~1 ~ 0.5 1 0.5 0.1 30",
+        "execute if score @s Escanor.Sunshine matches 1000.. run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 1 1.5",
+        "execute if score @s Escanor.Sunshine matches 1000.. run title @s actionbar {\"text\":\"Energy stored in Rhitta!\",\"color\":\"gold\"}",
+        "execute if score @s Escanor.Sunshine matches ..999 run title @s actionbar {\"text\":\"Not enough Sunshine energy! (Need 1000)\",\"color\":\"red\"}",
+        "execute if score @s rhitta.heat matches 10001.. run scoreboard players set @s rhitta.heat 10000"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 40,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+    "extract_energy": {
+      "type": "palladium:command",
+      "icon": "minecraft:glowstone_dust",
+      "title": "Extract Energy from Rhitta",
+      "description": "Hold to transfer 1000 stored energy from Rhitta back to your Sunshine.",
+      "list_index": 3,
+      "hidden_in_bar": false,
+      "commands": [
+        "execute if score @s rhitta.heat matches 1000.. run scoreboard players add @s Escanor.Sunshine 1000",
+        "execute if score @s rhitta.heat matches 1000.. run scoreboard players remove @s rhitta.heat 1000",
+        "execute if score @s rhitta.heat matches 1000.. run particle minecraft:end_rod ~ ~1 ~ 0.5 1 0.5 0.1 30",
+        "execute if score @s rhitta.heat matches 1000.. run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 1.5",
+        "execute if score @s rhitta.heat matches 1000.. run title @s actionbar {\"text\":\"Energy extracted from Rhitta!\",\"color\":\"yellow\"}",
+        "execute if score @s rhitta.heat matches ..999 run title @s actionbar {\"text\":\"Not enough stored energy! (Need 1000)\",\"color\":\"red\"}",
+        "execute if score @s Escanor.Sunshine matches 10001.. run scoreboard players set @s Escanor.Sunshine 10000"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:has_power", "power": "eternalheros:escanor"}
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 40,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+    "energy_display": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "title @s actionbar [{\"text\":\"Rhitta: \",\"color\":\"gold\"},{\"score\":{\"name\":\"@s\",\"objective\":\"rhitta.heat\"},\"color\":\"yellow\"},{\"text\":\" | Sunshine: \",\"color\":\"gold\"},{\"score\":{\"name\":\"@s\",\"objective\":\"Escanor.Sunshine\"},\"color\":\"yellow\"}]"
+      ],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:item_in_slot", "item": {"item": "eternalheros:rhitta"}, "slot": "mainhand"}
+        ]
+      }
+    },
+
+    "energy_cap": {
+      "type": "palladium:command",
+      "icon": "eternalheros:rhitta",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute if score @s rhitta.heat matches 10001.. run scoreboard players set @s rhitta.heat 10000",
+        "execute if score @s rhitta.heat matches ..-1 run scoreboard players set @s rhitta.heat 0"
+      ]
+    }
+  }
+}
+

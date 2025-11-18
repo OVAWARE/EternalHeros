@@ -1,0 +1,1878 @@
+{
+    "name": "Enchanter",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/bookshelf.png",
+    "icon": "fsang:textures/icon/gui/powers/kratos.png",
+    "gui_display_type": "tree",
+    "abilities": {
+        "protection1": {
+            "title": "Protection I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor",
+            "amount": 1,
+            
+            "gui_position": [
+                -5,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "protection1"
+                }
+            }
+        },
+        "protection2": {
+            "title": "Protection II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor",
+            "amount": 1,
+            
+            "gui_position": [
+                -5,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "protection2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "protection1"
+                        }
+                    ]
+                }
+            }
+        },
+        "protection3": {
+            "title": "Protection III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor",
+            "amount": 1,
+            
+            "gui_position": [
+                -5,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "protection3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "protection2"
+                        }
+                    ]
+                }
+            }
+        },
+        "protection4": {
+            "title": "Protection IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor",
+            "amount": 1,
+            
+            "gui_position": [
+                -5,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "protection4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "protection3"
+                        }
+                    ]
+                }
+            }
+        },
+        "protection5": {
+            "title": "Protection V",
+            "type": "palladium:healing",
+            "frequency": 100,
+            "amount": 1,
+            "gui_position": [
+                -5,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "protection5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "protection4"
+                        }
+                    ]
+                }
+            }
+        },
+        "fire_protection1": {
+            "title": "Fire Protection I",
+            "type": "palladium:damage_immunity",
+            "damage_sources": ["minecraft:is_fire"],
+            "gui_position": [
+                -6,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "fire_protection1"
+                }
+            }
+        },
+        "fire_protection2": {
+            "title": "Fire Protection II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.05,
+            
+            "gui_position": [
+                -6,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fire_protection2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fire_protection1"
+                        }
+                    ]
+                }
+            }
+        },
+        "fire_protection3": {
+            "title": "Fire Protection III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.05,
+            
+            "gui_position": [
+                -6,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fire_protection3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fire_protection2"
+                        }
+                    ]
+                }
+            }
+        },
+        "fire_protection4": {
+            "title": "Fire Protection IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.05,
+            
+            "gui_position": [
+                -6,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fire_protection4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fire_protection3"
+                        }
+                    ]
+                }
+            }
+        },
+        "fire_protection5": {
+            "title": "Fire Protection V",
+            "type": "palladium:fire_aspect",
+            "time": 5,
+            "gui_position": [
+                -6,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fire_protection5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fire_protection4"
+                        }
+                    ]
+                }
+            }
+        },
+        "blast_protection1": {
+            "title": "Blast Protection I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.knockback_resistance",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -7,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "blast_protection1"
+                }
+            }
+        },
+        "blast_protection2": {
+            "title": "Blast Protection II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.knockback_resistance",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -7,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "blast_protection2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "blast_protection1"
+                        }
+                    ]
+                }
+            }
+        },
+        "blast_protection3": {
+            "title": "Blast Protection III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.knockback_resistance",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -7,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "blast_protection3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "blast_protection2"
+                        }
+                    ]
+                }
+            }
+        },
+        "blast_protection4": {
+            "title": "Blast Protection IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.knockback_resistance",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -7,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "blast_protection4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "blast_protection3"
+                        }
+                    ]
+                }
+            }
+        },
+        "blast_protection5": {
+            "title": "Blast Protection V",
+            "type": "gabeupsp:explosion",
+            "radius": 3,
+            "self_damage": 0,
+            "gui_position": [
+                -7,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "blast_protection5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "blast_protection4"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "key_bind",
+                    "cooldown": 100
+                }
+            }
+        },
+        "projectile_protection1": {
+            "title": "Projectile Protection I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.02,
+            
+            "gui_position": [
+                -8,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "projectile_protection1"
+                }
+            }
+        },
+        "projectile_protection2": {
+            "title": "Projectile Protection II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.02,
+            
+            "gui_position": [
+                -8,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "projectile_protection2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "projectile_protection1"
+                        }
+                    ]
+                }
+            }
+        },
+        "projectile_protection3": {
+            "title": "Projectile Protection III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.02,
+            
+            "gui_position": [
+                -8,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "projectile_protection3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "projectile_protection2"
+                        }
+                    ]
+                }
+            }
+        },
+        "projectile_protection4": {
+            "title": "Projectile Protection IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.02,
+            
+            "gui_position": [
+                -8,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "projectile_protection4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "projectile_protection3"
+                        }
+                    ]
+                }
+            }
+        },
+        "projectile_protection5": {
+            "title": "Projectile Protection V",
+            "type": "palladium:projectile",
+            "entity_type": "minecraft:arrow",
+            "velocity": 2.0,
+            "gui_position": [
+                -8,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "projectile_protection5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "projectile_protection4"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "right_click",
+                    "cooldown": 20
+                }
+            }
+        },
+        "feather_falling1": {
+            "title": "Feather Falling I",
+            "type": "palladium:damage_immunity",
+            "damage_sources": ["minecraft:is_fall"],
+            "gui_position": [
+                -9,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "feather_falling1"
+                }
+            }
+        },
+        "feather_falling2": {
+            "title": "Feather Falling II",
+            "type": "palladium:slowfall",
+            "gui_position": [
+                -9,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "feather_falling2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "feather_falling1"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "feather_falling3": {
+            "title": "Feather Falling III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:jump_power",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -9,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "feather_falling3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "feather_falling2"
+                        }
+                    ]
+                }
+            }
+        },
+        "feather_falling4": {
+            "title": "Feather Falling IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:jump_power",
+            "amount": 0.1,
+            
+            "gui_position": [
+                -9,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "feather_falling4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "feather_falling3"
+                        }
+                    ]
+                }
+            }
+        },
+        "feather_falling5": {
+            "title": "Feather Falling V",
+            "type": "palladium:command",
+            "commands": ["/palladium:palladium fly @s toggle"],
+            "gui_position": [
+                -9,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "feather_falling5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "feather_falling4"
+                        }
+                    ]
+                }
+            }
+        },
+        "respiration1": {
+            "title": "Respiration I",
+            "type": "lanterncorps:toughlungs",
+            "gui_position": [
+                -10,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "respiration1"
+                }
+            }
+        },
+        "respiration2": {
+            "title": "Respiration II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "forge:swim_speed",
+            "amount": 0.2,
+            
+            "gui_position": [
+                -10,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "respiration2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "respiration1"
+                        }
+                    ]
+                }
+            }
+        },
+        "respiration3": {
+            "title": "Respiration III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "forge:swim_speed",
+            "amount": 0.2,
+            
+            "gui_position": [
+                -10,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "respiration3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "respiration2"
+                        }
+                    ]
+                }
+            }
+        },
+        "respiration4": {
+            "title": "Respiration IV",
+            "type": "palladium:command",
+            "commands": ["/effect give @s dolphins_grace 5 1 true"],
+            "gui_position": [
+                -10,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "respiration4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "respiration3"
+                        }
+                    ]
+                }
+            }
+        },
+        "aqua_affinity": {
+            "title": "Aqua Affinity",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "operation": 1,
+            "amount": 0.2,
+            
+            "gui_position": [
+                -11,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "aqua_affinity1"
+                }
+            }
+        },
+        "aqua_affinity2": {
+            "title": "Aqua Affinity II",
+            "type": "fsang:mine_block",
+            "range": 10,
+            "drop_items": true,
+            "gui_position": [
+                -11,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "aqua_affinity2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "aqua_affinity"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "left_click"
+                }
+            }
+        },
+        "thorns1": {
+            "title": "Thorns I",
+            "type": "palladium:command",
+            "commands": ["/damage @a[distance=..2,name=!{player}] 1"],
+            "gui_position": [
+                -12,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "thorns1"
+                }
+            }
+        },
+        "thorns2": {
+            "title": "Thorns II",
+            "type": "palladium:command",
+            "commands": ["/damage @a[distance=..2,name=!{player}] 1"],
+            "gui_position": [
+                -12,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "thorns2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "thorns1"
+                        }
+                    ]
+                }
+            }
+        },
+        "thorns3": {
+            "title": "Thorns III",
+            "type": "palladium:command",
+            "commands": ["/damage @a[distance=..2,name=!{player}] 1"],
+            "gui_position": [
+                -12,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "thorns3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "thorns2"
+                        }
+                    ]
+                }
+            }
+        },
+        "thorns4": {
+            "title": "Thorns IV",
+            "type": "heroes:aoe_damage",
+            "radius": 5,
+            "damage": 4,
+            "gui_position": [
+                -12,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "thorns4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "thorns3"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "key_bind",
+                    "cooldown": 60
+                }
+            }
+        },
+        "depth_strider1": {
+            "title": "Depth Strider I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "forge:swim_speed",
+            "amount": 0.33,
+            
+            "gui_position": [
+                -13,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "depth_strider1"
+                }
+            }
+        },
+        "depth_strider2": {
+            "title": "Depth Strider II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "forge:swim_speed",
+            "amount": 0.33,
+            
+            "gui_position": [
+                -13,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "depth_strider2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "depth_strider1"
+                        }
+                    ]
+                }
+            }
+        },
+        "depth_strider3": {
+            "title": "Depth Strider III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "forge:swim_speed",
+            "amount": 0.34,
+            
+            "gui_position": [
+                -13,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "depth_strider3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "depth_strider2"
+                        }
+                    ]
+                }
+            }
+        },
+        "depth_strider4": {
+            "title": "Depth Strider IV",
+            "type": "palladium:water_walk",
+            "gui_position": [
+                -13,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "depth_strider4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "depth_strider3"
+                        }
+                    ]
+                }
+            }
+        },
+        "frost_walker1": {
+            "title": "Frost Walker I",
+            "type": "palladium:fluid_walking",
+            "fluid_tag": "minecraft:water",
+            "gui_position": [
+                -14,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "frost_walker1"
+                }
+            }
+        },
+        "frost_walker2": {
+            "title": "Frost Walker II",
+            "type": "heroes:aoe_damage",
+            "radius": 3,
+            "damage": 2,
+            "effect": "minecraft:slowness",
+            "effect_seconds": 5,
+            "gui_position": [
+                -14,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "frost_walker2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "frost_walker1"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "soul_speed1": {
+            "title": "Soul Speed I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.1,
+            
+            "gui_position": [
+                -15,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "soul_speed1"
+                }
+            }
+        },
+        "soul_speed2": {
+            "title": "Soul Speed II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.1,
+            
+            "gui_position": [
+                -15,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "soul_speed2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "soul_speed1"
+                        }
+                    ]
+                }
+            }
+        },
+        "soul_speed3": {
+            "title": "Soul Speed III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.1,
+            
+            "gui_position": [
+                -15,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "soul_speed3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "soul_speed2"
+                        }
+                    ]
+                }
+            }
+        },
+        "soul_speed4": {
+            "title": "Soul Speed IV",
+            "type": "palladium:command",
+            "trail": "palladium:textures/trail/soul.png",
+            "gui_position": [
+                -15,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "soul_speed4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "soul_speed3"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:sprinting"
+                }
+            }
+        },
+        "swift_sneak1": {
+            "title": "Swift Sneak I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.15,
+            
+            "gui_position": [
+                -16,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "swift_sneak1"
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "swift_sneak2": {
+            "title": "Swift Sneak II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.15,
+            
+            "gui_position": [
+                -16,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "swift_sneak2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "swift_sneak1"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "swift_sneak3": {
+            "title": "Swift Sneak III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": 1,
+            "amount": 0.15,
+            
+            "gui_position": [
+                -16,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "swift_sneak3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "swift_sneak2"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "swift_sneak4": {
+            "title": "Swift Sneak IV",
+            "type": "palladium:invisibility",
+            "gui_position": [
+                -16,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "swift_sneak4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "swift_sneak3"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:crouching"
+                }
+            }
+        },
+        "sharpness1": {
+            "title": "Sharpness I",
+            "icon": "minecraft:iron_sword",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            
+            "gui_position": [
+                -4,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "sharpness1"
+                }
+            }
+        },
+        "sharpness2": {
+            "title": "Sharpness II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            
+            "gui_position": [
+                -4,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "sharpness2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "sharpness1"
+                        }
+                    ]
+                }
+            }
+        },
+        "sharpness3": {
+            "title": "Sharpness III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            
+            "gui_position": [
+                -4,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "sharpness3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "sharpness2"
+                        }
+                    ]
+                }
+            }
+        },
+        "sharpness4": {
+            "title": "Sharpness IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            
+            "gui_position": [
+                -4,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "sharpness4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "sharpness3"
+                        }
+                    ]
+                }
+            }
+        },
+        "sharpness5": {
+            "title": "Sharpness V",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.attack_damage",
+            "amount": 1,
+            
+            "gui_position": [
+                -4,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "sharpness5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "sharpness4"
+                        }
+                    ]
+                }
+            }
+        },
+        "sharpness6": {
+            "title": "Sharpness VI",
+            "type": "heroes:aoe_damage",
+            "radius": 3,
+            "damage": 5,
+            "gui_position": [
+                -4,
+                5
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "sharpness6"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "sharpness5"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "left_click"
+                }
+            }
+        },
+        "unbreaking1": {
+            "title": "Unbreaking I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor_toughness",
+            "amount": 1,
+            
+            "gui_position": [
+                -3,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "unbreaking1"
+                }
+            }
+        },
+        "unbreaking2": {
+            "title": "Unbreaking II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor_toughness",
+            "amount": 1,
+            
+            "gui_position": [
+                -3,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "unbreaking2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "unbreaking1"
+                        }
+                    ]
+                }
+            }
+        },
+        "unbreaking3": {
+            "title": "Unbreaking III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.armor_toughness",
+            "amount": 1,
+            
+            "gui_position": [
+                -3,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "unbreaking3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "unbreaking2"
+                        }
+                    ]
+                }
+            }
+        },
+        "unbreaking4": {
+            "title": "Unbreaking IV",
+            "type": "heroes:item_auto_repair",
+            "mainhand": true,
+            "repair": true,
+            "gui_position": [
+                -3,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "unbreaking4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "unbreaking3"
+                        }
+                    ]
+                }
+            }
+        },
+        "mending": {
+            "title": "Mending",
+            "type": "palladium:healing",
+            "frequency": 20,
+            "amount": 1,
+            "gui_position": [
+                -2,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "mending1"
+                }
+            }
+        },
+        "mending2": {
+            "title": "Mending II",
+            "type": "palladium:command",
+            "commands": ["/experience add @s 1 points"],
+            "gui_position": [
+                -2,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "mending2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "mending"
+                        }
+                    ]
+                }
+            }
+        },
+        "piercing1": {
+            "title": "Piercing I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "attributeslib:armor_shred",
+            "amount": 0.05,
+            
+            "gui_position": [
+                -1,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "piercing1"
+                }
+            }
+        },
+        "piercing2": {
+            "title": "Piercing II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "attributeslib:armor_shred",
+            "amount": 0.05,
+            
+            "gui_position": [
+                -1,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "piercing2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "piercing1"
+                        }
+                    ]
+                }
+            }
+        },
+        "piercing3": {
+            "title": "Piercing III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "attributeslib:armor_shred",
+            "amount": 0.05,
+            
+            "gui_position": [
+                -1,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "piercing3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "piercing2"
+                        }
+                    ]
+                }
+            }
+        },
+        "piercing4": {
+            "title": "Piercing IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "attributeslib:armor_shred",
+            "amount": 0.05,
+            
+            "gui_position": [
+                -1,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "piercing4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "piercing3"
+                        }
+                    ]
+                }
+            }
+        },
+        "piercing5": {
+            "title": "Piercing V",
+            "type": "palladium:energy_beam",
+            "damage": 2,
+            "max_distance": 20,
+            "gui_position": [
+                -1,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "piercing5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "piercing4"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:held",
+                    "key_type": "right_click"
+                }
+            }
+        },
+        "binding": {
+            "title": "Curse of Binding",
+            "type": "eternalheros:snare",
+            "gui_position": [
+                0,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "binding_curse1"
+                },
+                "enabling": {
+                    "type": "palladium:held",
+                    "key_type": "key_bind"
+                }
+            }
+        },
+        "vanishing": {
+            "title": "Curse of Vanishing",
+            "type": "palladium:invisibility",
+            "gui_position": [
+                1,
+                0
+            ],
+            "description": "Imbue yourself with the curse vanishing your body temporarily",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "vanishing_curse1"
+                }
+            }
+        },
+        "efficiency1": {
+            "title": "Efficiency I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "amount": 1,
+            
+            "gui_position": [
+                2,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "efficiency1"
+                }
+            }
+        },
+        "efficiency2": {
+            "title": "Efficiency II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "amount": 1,
+            
+            "gui_position": [
+                2,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "efficiency2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "efficiency1"
+                        }
+                    ]
+                }
+            }
+        },
+        "efficiency3": {
+            "title": "Efficiency III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "amount": 1,
+            
+            "gui_position": [
+                2,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "efficiency3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "efficiency2"
+                        }
+                    ]
+                }
+            }
+        },
+        "efficiency4": {
+            "title": "Efficiency IV",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "amount": 1,
+            
+            "gui_position": [
+                2,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "efficiency4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "efficiency3"
+                        }
+                    ]
+                }
+            }
+        },
+        "efficiency5": {
+            "title": "Efficiency V",
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:destroy_speed",
+            "amount": 1,
+            
+            "gui_position": [
+                2,
+                4
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "efficiency5"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "efficiency4"
+                        }
+                    ]
+                }
+            }
+        },
+        "efficiency6": {
+            "title": "Efficiency VI",
+            "type": "palladium:command",
+            "commands": ["/effect give @s haste 2 1 true"],
+            "gui_position": [
+                2,
+                5
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "efficiency6"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "efficiency5"
+                        }
+                    ]
+                }
+            }
+        },
+        "fortune1": {
+            "title": "Fortune I",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.luck",
+            "amount": 1,
+            
+            "gui_position": [
+                3,
+                0
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "fortune1"
+                }
+            }
+        },
+        "fortune2": {
+            "title": "Fortune II",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.luck",
+            "amount": 1,
+            
+            "gui_position": [
+                3,
+                1
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fortune2"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fortune1"
+                        }
+                    ]
+                }
+            }
+        },
+        "fortune3": {
+            "title": "Fortune III",
+            "type": "palladium:attribute_modifier",
+            "attribute": "minecraft:generic.luck",
+            "amount": 1,
+            
+            "gui_position": [
+                3,
+                2
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fortune3"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fortune2"
+                        }
+                    ]
+                }
+            }
+        },
+        "fortune4": {
+            "title": "Fortune IV",
+            "type": "palladium:command",
+            "commands": ["/loot spawn ~ ~ ~ loot minecraft:chests/ancient_city"],
+            "gui_position": [
+                3,
+                3
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "fortune4"
+                        },
+                        {
+                            "type": "palladium:ability_unlocked",
+                            "ability": "fortune3"
+                        }
+                    ]
+                },
+                "enabling": {
+                    "type": "palladium:action",
+                    "key_type": "key_bind",
+                    "cooldown": 12000
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+{
+  "name": "Black Knife",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/black_concrete.png",
+  "icon": "eternalheros:textures/item/black_knife.png",
+  "gui_display_type": "list",
+  "abilities": {
+    "black_wave": {
+      "type": "palladium:projectile",
+      "icon": "eternalheros:textures/item/black_knife.png",
+      "title": "Black Wave",
+      "hidden": false,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 10,
+        "Gravity": 0,
+        "CommandOnEntityHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=eternalheros:black_knife] at @s run effect give @s minecraft:wither 5 4 true",
+        "CommandOnBlockHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=eternalheros:black_knife] at @s run effect give @s minecraft:wither 5 4 true",
+        "Lifetime": 15,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:smoke",
+            "Spread": 1,
+            "Amount": 5
+          }
+        ]
+      },
+      "velocity": 2.5,
+      "inaccuracy": 2,
+      "swinging_arm": "main_arm",
+
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "left_click",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+
+
+    "black_wave_transport": {
+      "type": "palladium:projectile",
+      "title": "Darkness Transport",
+      "icon": "minecraft:ender_pearl",
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 10,
+        "Gravity": 0,
+        "Distance": 100,
+        "CommandOnEntityHit": "execute at @e[sort=nearest,limit=1,type=!item,type=!#minecraft:arrows,distance=..10] run tp UrUbonZ ~ ~ ~",
+        "CommandOnBlockHit": "execute at @e[sort=nearest,limit=1,type=!item,type=!#minecraft:arrows,distance=..10] run tp UrUbonZ ~ ~ ~",
+        "Lifetime": 15,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:squid_ink",
+            "Spread": 0,
+            "Amount": 5
+          }
+        ]
+      },
+      "velocity": 5.5,
+      "inaccuracy": 0,
+      "swinging_arm": "main_arm",
+
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+
+    "darkness_immunity":{
+      "type": "palladium:command",
+      "commands": [
+        "effect clear UrUbonZ minecraft:blindness",
+        "effect clear UrUbonZ minecraft:darkness"
+      ]
+    },
+
+
+    "levitation":{
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:levitation_speed",
+      "amount": 0.25
+    },
+
+
+
+    "darkness":{
+      "type": "palladium:command",
+      "title": "Darkness",
+      "description": "Spreads darkness to those withen your sight",
+      "commands": [
+        "effect give @e[distance=..10,type=!minecraft:player] minecraft:darkness 1 10 true",
+        "effect give @a[distance=..10,nbt=!{Inventory:[{Slot:0b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:1b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:2b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:3b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:4b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:5b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:6b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:7b,id:\"eternalheros:black_knife\"}]},nbt=!{Inventory:[{Slot:8b,id:\"eternalheros:black_knife\"}]},nbt=!{SelectedItem:{id:\"eternalheros:black_knife\"}},nbt=!{Inventory:[{Slot:-106b,id:\"eternalheros:black_knife\"}]}] minecraft:darkness 1 10 true"
+      ]
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "name": "Immortal Snail",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/moss_block.png",
+  "icon": "minecraft:nautilus_shell",
+  "gui_display_type": "list",
+
+  "abilities": {
+    "identity": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:nautilus_shell",
+      "title": "Immortal Snail",
+      "description": "An ageless hunter destined to pursue a single quarry forever.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 0]
+    },
+
+    "snail_setup": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "scoreboard objectives add immortalsnail.has_target dummy",
+        "scoreboard objectives add immortalsnail.target_x dummy",
+        "scoreboard objectives add immortalsnail.target_y dummy",
+        "scoreboard objectives add immortalsnail.target_z dummy",
+        "tag @s add immortal_snail_user",
+        "scoreboard players set @s immortalsnail.has_target 0",
+        "scoreboard players set @s immortalsnail.target_x 0",
+        "scoreboard players set @s immortalsnail.target_y 0",
+        "scoreboard players set @s immortalsnail.target_z 0"
+      ],
+      "commands": []
+    },
+
+    "link_target": {
+      "title": "Fixate Target",
+      "description": "Bind yourself to the closest living entity (excluding other immortal snails) within 80 blocks.",
+      "icon": "minecraft:spyglass",
+      "bar_color": "green",
+      "type": "palladium:command",
+      "commands": [
+        "tag @e[tag=immortal_snail_target] remove immortal_snail_target",
+        "scoreboard players set @s immortalsnail.has_target 0",
+        "execute as @e[tag=!immortal_snail_user,type=!minecraft:item,type=!minecraft:experience_orb,type=!minecraft:arrow,type=!minecraft:trident,type=!minecraft:firework_rocket,type=!minecraft:area_effect_cloud,type=!minecraft:marker,distance=..80,sort=nearest,limit=1] run tag @s add immortal_snail_target",
+        "execute if entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.has_target 1",
+        "execute if entity @e[tag=immortal_snail_target,limit=1] run title @s actionbar {\"text\":\"Target linked.\",\"color\":\"green\"}",
+        "execute unless entity @e[tag=immortal_snail_target,limit=1] run title @s actionbar {\"text\":\"No valid target found.\",\"color\":\"red\"}"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "cooldown": 200,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+    "snail_tracking": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute if entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.has_target 1",
+        "execute unless entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.has_target 0",
+        "execute unless entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.target_x 0",
+        "execute unless entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.target_y 0",
+        "execute unless entity @e[tag=immortal_snail_target,limit=1] run scoreboard players set @s immortalsnail.target_z 0",
+        "execute if entity @e[tag=immortal_snail_target,limit=1,sort=nearest] run execute store result score @s immortalsnail.target_x run data get entity @e[tag=immortal_snail_target,limit=1,sort=nearest] Pos[0]",
+        "execute if entity @e[tag=immortal_snail_target,limit=1,sort=nearest] run execute store result score @s immortalsnail.target_y run data get entity @e[tag=immortal_snail_target,limit=1,sort=nearest] Pos[1]",
+        "execute if entity @e[tag=immortal_snail_target,limit=1,sort=nearest] run execute store result score @s immortalsnail.target_z run data get entity @e[tag=immortal_snail_target,limit=1,sort=nearest] Pos[2]",
+        "execute if score @s immortalsnail.has_target matches 1.. run title @s actionbar [{\"text\":\"Immortal Target \",\"color\":\"dark_green\"},{\"text\":\"X:\",\"color\":\"yellow\"},{\"score\":{\"name\":\"*\",\"objective\":\"immortalsnail.target_x\"},\"color\":\"white\"},{\"text\":\" Y:\",\"color\":\"yellow\"},{\"score\":{\"name\":\"*\",\"objective\":\"immortalsnail.target_y\"},\"color\":\"white\"},{\"text\":\" Z:\",\"color\":\"yellow\"},{\"score\":{\"name\":\"*\",\"objective\":\"immortalsnail.target_z\"},\"color\":\"white\"}]",
+        "execute unless score @s immortalsnail.has_target matches 1.. run title @s actionbar {\"text\":\"No linked target\",\"color\":\"gray\"}"
+      ]
+    },
+
+    "slow_and_sturdy": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "effect give @s minecraft:resistance 10 4 true",
+        "effect give @s minecraft:slowness 10 2 true"
+      ]
+    },
+
+    "touch_of_the_void": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "execute if entity @e[tag=immortal_snail_target,distance=..0.7] run title @s actionbar {\"text\":\"Contact! The hunt ends.\",\"color\":\"dark_red\",\"bold\":true}",
+        "execute if entity @e[tag=immortal_snail_target,distance=..0.7] run scoreboard players set @s immortalsnail.has_target 0",
+        "execute as @e[tag=immortal_snail_target,distance=..0.7,limit=1,sort=nearest] run damage @s 9999999 minecraft:out_of_world",
+        "execute if entity @e[tag=immortal_snail_target,distance=..0.7] run damage @s 9999999 minecraft:out_of_world",
+        "execute if entity @e[tag=immortal_snail_target,distance=..0.7] run tag @e[tag=immortal_snail_target] remove immortal_snail_target"
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,26 @@
+{
+  "name": "Testing Power",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/netherite_block.png",
+  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+    "advanced_grab":{
+      "type": "eternalheros:yeet",
+      "hidden_in_bar": false,
+      "strength": 10,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 2000,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+      
+    }
+  }
+}

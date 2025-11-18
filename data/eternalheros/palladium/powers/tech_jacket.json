@@ -1,0 +1,780 @@
+{
+  "name": "Technosuit",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/iron_block.png",
+  "icon": "minecraft:iron_chestplate",
+  "gui_display_type": "tree",
+
+  "abilities": {
+    "identity": {
+      "type": "palladium:dummy",
+      "icon": "eternalheros:textures/icon/tech_jacket.png",
+      "title": "The Metal Man",
+      "description": "Destroy the Viltrimites",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        0,
+        0
+      ]
+    },
+    "techno_skin": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:skin_change",
+      "texture": "eternalheros:textures/skins/techno_suit.png",
+      "model_type": "KEEP"
+    },
+    "restrict_slots": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "slots": [
+          "head",
+          "chest",
+          "legs",
+          "feet"
+      ]
+    },
+
+
+
+    "strength_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:iron_sword",
+      "title": "Strength Upgrade Tree",
+      "description": "The Power of the Metal Machine",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        1,
+        0
+      ]
+    },
+    "base_attack": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "019939e0-b8b7-76d9-a8f7-2061e066b8df",
+      "amount": 3
+    },
+    "strength_upgrade_1": {
+      "title": "Strength Upgrade 1",
+      "description": "Increases your attack damage by 6.",
+      "icon": "minecraft:stone_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "019939df-8808-7af0-954e-aedca0711b56",
+      "amount": 3,
+      "gui_position": [
+        2,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 15
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "strength_upgrade_tree"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "strength_upgrade_2": {
+      "type": "palladium:attribute_modifier",
+      "title": "Strength Upgrade 2",
+      "description": "Increases your attack damage by 6.",
+      "icon": "minecraft:iron_sword",
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "119939e0-b8b7-76d9-a8f7-2061e066b8df",
+      "gui_position": [
+        3,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 25
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "strength_upgrade_1"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "strength_upgrade_3": {
+      "title": "Strength Upgrade 3",
+      "description": "Increases your attack damage by 6.",
+      "icon": "minecraft:diamond_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "219939e0-b8b7-76d9-a8f7-2061e066b8df",
+      "gui_position": [
+        4,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 30
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "strength_upgrade_2"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "strength_upgrade_4": {
+      "title": "Strength Upgrade 4",
+      "description": "Increases your attack damage by 6.",
+      "icon": "minecraft:netherite_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "amount": 3,
+      "uuid": "319939e0-b8b7-76d9-a8f7-2061e066b8df",
+      "gui_position": [
+        5,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 35
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "strength_upgrade_3"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+
+
+
+
+    "defense_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Strength Upgrade Tree",
+      "description": "Metal Armor",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        -1,
+        0
+      ]
+    },
+    "base_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "019939e5-eaef-74e7-8ac8-829a87be58b0",
+      "amount": 10
+    },
+    "armor_upgrade_1": {
+      "title": "Armor Upgrade 1",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:leather_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "019939e5-eaef-74e7-8ac8-829a87be58b1",
+      "gui_position": [
+        -2,
+        -1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 20
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "defense_upgrade_tree"
+          }
+        ]
+      }
+    },
+    "armor_upgrade_2": {
+      "title": "Armor Upgrade 2",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:iron_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "019939e5-eaef-74e7-8ac8-829a87be58b2",
+      "gui_position": [
+        -3,
+        -1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 30
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "armor_upgrade_1"
+          }
+        ]
+      }
+    },
+    "armor_upgrade_3": {
+      "title": "Armor Upgrade 3",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:diamond_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "019939e5-eaef-74e7-8ac8-829a87be58b3",
+      "gui_position": [
+        -4,
+        -1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 35
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "armor_upgrade_2"
+          }
+        ]
+      }
+    },
+    "armor_upgrade_4": {
+      "title": "Armor Upgrade 4",
+      "description": "Increases your armor by 5.",
+      "icon": "minecraft:netherite_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "019939e5-eaef-74e7-8ac8-829a87be58b4",
+      "gui_position": [
+        -5,
+        -1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 40
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "armor_upgrade_3"
+          }
+        ]
+      }
+    },
+    "base_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "019939ec-2d8e-7314-bc0a-2dcabe2c81f0"
+    },
+    "toughness_upgrade_1": {
+      "title": "Toughness Upgrade 1",
+      "description": "Increases your toughness by 3.",
+      "icon": "minecraft:leather_helmet",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "019939ec-2d8e-7314-bc0a-2dcabe2c81f1",
+      "gui_position": [
+        -2,
+        1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 30
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "defense_upgrade_tree"
+          }
+        ]
+      }
+    },
+    "toughness_upgrade_2": {
+      "title": "Toughness Upgrade 2",
+      "description": "Increases your toughness by 3.",
+      "icon": "minecraft:iron_helmet",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "019939ec-2d8e-7314-bc0a-2dcabe2c81f2",
+      "gui_position": [
+        -3,
+        1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 40
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "toughness_upgrade_1"
+          }
+        ]
+      }
+    },
+    "toughness_upgrade_3": {
+      "title": "Toughness Upgrade 3",
+      "description": "Increases your toughness by 3.",
+      "icon": "minecraft:diamond_helmet",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "019939ec-2d8e-7314-bc0a-2dcabe2c81f3",
+      "gui_position": [
+        -4,
+        1
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 50
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "toughness_upgrade_2"
+          }
+        ]
+      }
+    },
+    "base_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 6,
+      "uuid": "019939f0-3ad7-7287-8883-7eb8bb4b5500"
+    },
+    "health_upgrade_1": {
+      "title": "Health Upgrade 1",
+      "description": "Increases your health by 6.",
+      "icon": "minecraft:golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 3,
+      "uuid": "019939f0-3ad7-7287-8883-7eb8bb4b5501",
+      "gui_position": [
+        -2,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 15
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "defense_upgrade_tree"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "health_upgrade_2": {
+      "title": "Health Upgrade 2",
+      "description": "Increases your health by 6.",
+      "icon": "minecraft:golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 3,
+      "uuid": "019939f0-3ad7-7287-8883-7eb8bb4b5502",
+      "gui_position": [
+        -3,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 20
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "health_upgrade_1"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "health_upgrade_3": {
+      "title": "Health Upgrade 3",
+      "description": "Increases your health by 6.",
+      "icon": "minecraft:golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 3,
+      "uuid": "019939f0-3ad7-7287-8883-7eb8bb4b5503",
+      "gui_position": [
+        -4,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 30
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "health_upgrade_2"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "health_upgrade_4": {
+      "title": "Health Upgrade 4",
+      "description": "Increases your health by 6.",
+      "icon": "minecraft:golden_apple",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 3,
+      "uuid": "019939f0-3ad7-7287-8883-7eb8bb4b5504",
+      "gui_position": [
+        -5,
+        0
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 40
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "health_upgrade_3"
+          },
+          {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+
+
+  
+
+    "mobility_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:iron_boots",
+      "title": "Mobility Upgrade Tree",
+      "description": "The jetpacks!",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        0,
+        -1
+      ]
+    },
+    "base_flight": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:flight_speed",
+      "amount": 0.5,
+      "uuid": "7b142dd5-762d-4dc3-a976-af6cc8447f60",
+      "conditions": {
+        "unlocking": {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+}
+    },
+    "flight_upgrade_1": {
+      "title": "Flight Upgrade 1",
+      "description": "Increases your flight speed by 0.5.",
+      "icon": "minecraft:feather",
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:flight_speed",
+      "amount": 0.5,
+      "uuid": "7b142dd5-762d-4dc3-a976-af6cc8447f60",
+      "gui_position": [
+        0,
+        -2
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 20
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "mobility_upgrade_tree"
+          },
+                  {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+
+
+
+
+
+    "ability_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:redstone",
+      "title": "Ability Upgrade Tree",
+      "description": "Technology goes far",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [
+        0,
+        1
+      ]
+    },
+    "enchanced_vision": {
+      "title": "Enhanced Vision",
+      "description": "Using your robotic visor you can see in the dark.",
+      "type": "palladium:command",
+      "commands": ["effect give @s minecraft:night_vision 30 0 true"],
+      "gui_position": [
+        0,
+        2
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 15
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ability_upgrade_tree"
+          },
+                  {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 10
+}
+        ]
+      }
+    },
+    "eletro_discharge":{ 
+      "type": "palladium:energy_beam",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "damage": 20,
+      "max_distance": 100,
+      "energy_beam": "eternalheros:discharge",
+      "gui_position": [
+        0,
+        3
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held",
+          "key_type": "key_bind",
+          "cooldown": 45
+        },
+        "unlocking": [
+          {
+            "type": "palladium:experience_level_buyable",
+            "xp_level": 30
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "ability_upgrade_tree"
+          },
+        {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 50
+}
+
+        ]
+      }
+    },
+    "sonic_blasters": {
+      "type": "palladium:projectile",
+      "icon": "fsang:sonic_gun",
+      "title": "Sonic Blast",
+      "bar_color": "light_gray",
+      "hidden": false,
+        "gui_position": [
+        0,
+        4
+      ],
+      "hidden_in_bar": false,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 0,
+        "Gravity": 0,
+        "CommandOnEntityHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=fsang:sound_mutation] at @s run effect give @s fsang:sound_poisoning 2 1 true",
+        "CommandOnBlockHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=fsang:sound_mutation] at @s run effect give @s fsang:sound_poisoning 2 1 true",
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "fsang:sound_wave",
+            "Spread": 0
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 3.0,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:item_buyable",
+            "ingredient": {
+                "item": "fsang:sonic_gun"
+            },
+            "amount": 1
+          },
+          {
+            "type": "palladium:ability_unlocked",
+            "ability": "eletro_discharge"
+          },
+        {
+    "type": "fsang:rf_minimum_condition",
+    "curios_slot": "body",
+    "trinket_slot": "chest/necklace",
+    "min_rf": 50
+}
+
+        ],
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 200,
+            "key_type": "key_bind",
+            "needs_empty_hand": false,
+            "allow_scrolling_when_crouching": true
+          }
+        ]
+      }
+    },
+
+
+
+
+
+    "energy_drain_passive":{
+      "type": "fsang:drain_per_tick",
+      "curios_slot": "body",
+      "trinket_slot": "chest/necklace",
+      "energy_drain": 0.5,
+      "conditions":
+                                            {
+                            "type": "palladium:interval",
+                            "active_ticks": 1,
+                            "disabled_ticks": 39
+                        }
+    },
+    "energy_drain_eletro_discharge":{
+      "type": "fsang:drain_per_tick",
+      "curios_slot": "body",
+      "trinket_slot": "chest/necklace",
+      "energy_drain": 1,
+      "conditions":{
+        "type": "ability_enabled",
+        "ability": "eletro_discharge"
+      }
+    },
+    "energy_drain_sonic":{
+      "type": "fsang:drain_per_tick",
+      "curios_slot": "body",
+      "trinket_slot": "chest/necklace",
+      "energy_drain": 1,
+      "conditions":{
+        "type": "ability_enabled",
+        "ability": "sonic_blasters"
+      }
+    },
+
+    "metalic_skin": {
+    "type": "palladium:damage_immunity",
+    "hidden": true,
+    "damage_sources": [
+        "minecraft:is_projectile"
+    ]
+}
+
+
+
+  }
+}

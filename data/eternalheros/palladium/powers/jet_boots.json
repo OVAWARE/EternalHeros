@@ -1,0 +1,16 @@
+{
+    "name": "Jet Boots",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/iron_block.png",
+    "icon": "fsang:textures/icon/gui/powers/homelander.png",
+    "gui_display_type": "list",
+
+    "abilities": {
+        "flight": {
+            "type": "palladium:attribute_modifier",
+            "attribute": "palladium:flight_speed",
+            "amount": 1
+        }
+        
+    }
+}

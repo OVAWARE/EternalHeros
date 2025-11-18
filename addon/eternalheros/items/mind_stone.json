@@ -1,0 +1,7 @@
+{
+    "type": "palladium:default",
+    "max_stack_size": 1,
+    "rarity": "epic",
+    "is_fire_resistant": true,
+    "tooltip": ["Grants psychic abilities", "Can clear mind effects and control others"]
+}

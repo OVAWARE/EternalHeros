@@ -1,0 +1,12 @@
+{
+    "icon": "minecraft:trident",
+    "title": "Eternal Heros",
+    "items": [
+        "eternalheros:black_knife",
+        "eternalheros:scanner",
+        "eternalheros:dark_ingot",
+        "eternalheros:tech_jacket",
+        "eternalheros:mind_stone",
+        "eternalheros:time_stone"
+    ]
+}

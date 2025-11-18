@@ -1,0 +1,14 @@
+{
+  "name": "Code Banished",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/netherite_block.png",
+  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "gui_display_type": "list",
+
+  "abilities": {
+    "code_banishement":{
+      "type": "palladium:command",
+      "commands": ["execute as @s unless dimension arrzenhanced:the_code in arrzenhanced:the_code run tp @s 189 126 23"]
+    }
+  }
+}

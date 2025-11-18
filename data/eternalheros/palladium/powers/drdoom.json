@@ -1,0 +1,260 @@
+{
+  "name": "Doctor Doom",
+  "persistent_data": true,
+  "background": "minecraft:textures/block/emerald_block.png",
+  "icon": "eternalheros:textures/icon/drdoom.png",
+  "gui_display_type": "tree",
+
+  "abilities": {
+    "identity": {
+      "type": "palladium:dummy",
+      "icon": "eternalheros:textures/icon/drdoom.png",
+      "title": "Lord of Latveria",
+      "description": "Victor Von Doom — unmatched genius, master of both science and sorcery, and ruler of Latveria.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 0]
+    },
+
+    "strength_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:iron_sword",
+      "title": "Gauntlets of Doom",
+      "description": "Doom’s armored might, capable of matching gods in combat.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [1, 0]
+    },
+
+    "base_attack": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "d19939e0-b8b7-76d9-a8f7-2061e066a001",
+      "amount": 5
+    },
+
+    "strength_upgrade_1": {
+      "title": "Doom’s Strength I",
+      "description": "Increases attack damage by 10.",
+      "icon": "minecraft:iron_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "d19939df-8808-7af0-954e-aedca071a001",
+      "amount": 5,
+      "gui_position": [2, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 30},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_tree"}
+        ]
+      }
+    },
+    "strength_upgrade_2": {
+      "title": "Doom’s Strength II",
+      "description": "Increases attack damage by 10.",
+      "icon": "minecraft:diamond_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "d19939df-8808-7af0-954e-aedca071a002",
+      "amount": 5,
+      "gui_position": [3, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 45},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_1"}
+        ]
+      }
+    },
+    "strength_upgrade_3": {
+      "title": "Doom’s Strength III",
+      "description": "Increases attack damage by 15.",
+      "icon": "minecraft:netherite_sword",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "uuid": "d19939df-8808-7af0-954e-aedca071a003",
+      "amount": 5,
+      "gui_position": [4, 0],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "strength_upgrade_2"}
+        ]
+      }
+    },
+
+    "defense_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:netherite_chestplate",
+      "title": "Doom Armor",
+      "description": "Indestructible mystical armor infused with science and sorcery.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [-1, 0]
+    },
+
+    "base_armor": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "uuid": "d19939e5-eaef-74e7-8ac8-829a87bea001",
+      "amount": 25
+    },
+    "armor_upgrade_1": {
+      "title": "Armor Reinforcement I",
+      "description": "Increases armor by 5.",
+      "icon": "minecraft:iron_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 5,
+      "uuid": "d19939e5-eaef-74e7-8ac8-829a87bea002",
+      "gui_position": [-2, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 30},
+          {"type": "palladium:ability_unlocked", "ability": "defense_upgrade_tree"}
+        ]
+      }
+    },
+    "armor_upgrade_2": {
+      "title": "Armor Reinforcement II",
+      "description": "Increases armor by 10.",
+      "icon": "minecraft:diamond_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "uuid": "d19939e5-eaef-74e7-8ac8-829a87bea003",
+      "gui_position": [-3, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 45},
+          {"type": "palladium:ability_unlocked", "ability": "armor_upgrade_1"}
+        ]
+      }
+    },
+    "armor_upgrade_3": {
+      "title": "Armor Reinforcement III",
+      "description": "Increases armor by 15.",
+      "icon": "minecraft:netherite_chestplate",
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "amount": 15,
+      "uuid": "d19939e5-eaef-74e7-8ac8-829a87bea004",
+      "gui_position": [-4, -1],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "armor_upgrade_2"}
+        ]
+      }
+    },
+
+    "base_toughness": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor_toughness",
+      "amount": 5,
+      "uuid": "d19939ec-2d8e-7314-bc0a-2dcabe2c81a1"
+    },
+
+    "base_health": {
+      "hidden": true,
+      "hidden_in_bar": true,
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.max_health",
+      "amount": 35,
+      "uuid": "d19939f0-3ad7-7287-8883-7eb8bb4b55a1"
+    },
+
+    "ability_upgrade_tree": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:nether_star",
+      "title": "Sorcery & Science",
+      "description": "The perfect fusion of mystic arts and advanced technology.",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "gui_position": [0, 1]
+    },
+
+    "mystic_bolt": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:ender_pearl",
+      "title": "Mystic Bolt",
+      "bar_color": "green",
+      "damage": 6,
+      "hidden": false,
+      "hidden_in_bar": false,
+      "gui_position": [0, 2],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 25},
+          {"type": "palladium:ability_unlocked", "ability": "ability_upgrade_tree"}
+        ],
+        "enabling": [
+          {"type": "palladium:held","key_type":"key_bind","cooldown":200,"needs_empty_hand":true}
+        ]
+      }
+    },
+
+    "grab": {
+      "type": "eternalheros:telekinesis",
+      "hidden_in_bar": false,
+      "distance": 4.0,
+      "strength": 0.2,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "key_type": "key_bind",
+            "cooldown": 500,
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+
+    "doom_empowerment": {
+      "title": "God-Emperor Doom",
+      "description": "Unleash Doom’s true power: Strength V, Resistance IV, Regeneration II, and Fire Resistance for 30s.",
+      "type": "palladium:command",
+      "commands": [
+        "effect give @s minecraft:strength 30 4 true",
+        "effect give @s minecraft:resistance 30 3 true",
+        "effect give @s minecraft:regeneration 30 1 true",
+        "effect give @s minecraft:fire_resistance 30 0 true"
+      ],
+      "icon": "minecraft:totem_of_undying",
+      "gui_position": [0, 4],
+      "conditions": {
+        "unlocking": [
+          {"type": "palladium:experience_level_buyable", "xp_level": 60},
+          {"type": "palladium:ability_unlocked", "ability": "grab"}
+        ],
+        "enabling": [
+          {"type": "palladium:action","key_type":"key_bind","cooldown":1200,"needs_empty_hand":false}
+        ]
+      }
+    },
+
+    "leap": {
+      "type": "fsang:leap",
+      "icon": "minecraft:rabbit_foot",
+      "title": "Leap",
+      "bar_color": "green",
+      "hidden": false,
+      "hidden_in_bar": false
+    },
+
+    "advanced_healing": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "frequency": 20,
+      "amount": 4
+    }
+  }
+}

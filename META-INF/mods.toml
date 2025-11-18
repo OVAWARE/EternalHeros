@@ -1,0 +1,22 @@
+modLoader = "lowcodefml"
+loaderVersion = "[47,)"
+license = "All rights reserved"
+showAsResourcePack = false
+
+[[mods]]
+modId = "eternalheros"
+version = "1.0.0.0"
+displayName = "Eternal Heros"
+description = '''
+A Palladium Pack of Custom made heros for Atheron Accord
+
+Developed by URUBONZ
+'''
+
+[[dependencies.eternalheros]]
+modId = "palladium"
+mandatory = false
+versionRange = ">=4.0.0.0"
+ordering = "NONE"
+side = "BOTH"
+

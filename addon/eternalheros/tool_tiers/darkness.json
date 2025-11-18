@@ -1,0 +1,10 @@
+{
+    "level": 4,
+    "uses": 2000,
+    "speed": 10,
+    "attack_damage_bonus": 4,
+    "enchantment_value": 0,
+    "repair_ingredient": {
+        "tag": "eternalheros:dark_ingot"
+    }
+}
