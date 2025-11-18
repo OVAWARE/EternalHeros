@@ -2,7 +2,7 @@
   "name": "Code Banished",
   "persistent_data": true,
   "background": "minecraft:textures/block/netherite_block.png",
-  "icon": "fsang:textures/icon/gui/powers/kratos.png",
+  "icon": "eternalheros:textures/icon/kratos.png",
   "gui_display_type": "list",
 
   "abilities": {

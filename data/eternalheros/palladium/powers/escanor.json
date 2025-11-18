@@ -754,7 +754,7 @@
       ],
       "conditions": {
         "unlocking": [
-          {"type": "fsang:time_based_condition", "start_time": 17000, "end_time": 19000}
+          {"type": "palladium:night"}
         ]
       }
     },
@@ -769,8 +769,8 @@
       "conditions": {
         "unlocking": [
           {"type": "palladium:or", "conditions": [
-            {"type": "fsang:time_based_condition", "start_time": 19000, "end_time": 23000},
-            {"type": "fsang:time_based_condition", "start_time": 13000, "end_time": 17000}
+            {"type": "palladium:night"},
+            {"type": "palladium:night"}
           ]}
         ]
       }
@@ -786,8 +786,8 @@
       "conditions": {
         "unlocking": [
           {"type": "palladium:or", "conditions": [
-            {"type": "fsang:time_based_condition", "start_time": 23000, "end_time": 2000},
-            {"type": "fsang:time_based_condition", "start_time": 10000, "end_time": 13000}
+            {"type": "palladium:night"},
+            {"type": "palladium:day"}
           ]}
         ]
       }
@@ -803,8 +803,8 @@
       "conditions": {
         "unlocking": [
           {"type": "palladium:or", "conditions": [
-            {"type": "fsang:time_based_condition", "start_time": 2000, "end_time": 4000},
-            {"type": "fsang:time_based_condition", "start_time": 8000, "end_time": 10000}
+            {"type": "palladium:day"},
+            {"type": "palladium:day"}
           ]}
         ]
       }
@@ -820,8 +820,8 @@
       "conditions": {
         "unlocking": [
           {"type": "palladium:or", "conditions": [
-            {"type": "fsang:time_based_condition", "start_time": 4000, "end_time": 5500},
-            {"type": "fsang:time_based_condition", "start_time": 6500, "end_time": 8000}
+            {"type": "palladium:day"},
+            {"type": "palladium:day"}
           ]}
         ]
       }
@@ -836,7 +836,7 @@
       ],
       "conditions": {
         "unlocking": [
-          {"type": "fsang:time_based_condition", "start_time": 5500, "end_time": 6500}
+          {"type": "palladium:day"}
         ]
       }
     },

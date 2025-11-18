@@ -7,10 +7,10 @@
     ],
     "key": {
         "A": {
-            "item": "fsang:adamantium_ingot"
+            "item": "eternalheros:dark_ingot"
         },
         "R": {
-            "item": "fsang:iron_man_arc_reactor_1"
+            "item": "eternalheros:tech_jacket"
         }
     },
     "result": {

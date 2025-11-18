@@ -2,7 +2,7 @@
     "name": "Jet Boots",
     "persistent_data": true,
     "background": "minecraft:textures/block/iron_block.png",
-    "icon": "fsang:textures/icon/gui/powers/homelander.png",
+    "icon": "eternalheros:textures/icon/tech_jacket.png",
     "gui_display_type": "list",
 
     "abilities": {

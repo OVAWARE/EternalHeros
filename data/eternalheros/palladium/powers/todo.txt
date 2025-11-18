@@ -496,7 +496,7 @@ Kratos
 
 
       "leap": {
-      "type": "fsang:leap",
+      "type": "palladium:leap",
       "icon": "minecraft:rabbit_foot",
       "title": "Leap",
      "gui_position": [0, -2],

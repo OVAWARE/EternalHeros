@@ -2,12 +2,12 @@
     "name": "Scanner",
     "persistent_data": true,
     "background": "minecraft:textures/block/iron_block.png",
-    "icon": "fsang:textures/icon/gui/powers/homelander.png",
+    "icon": "eternalheros:textures/icon/scanner.png",
     "gui_display_type": "list",
 
     "abilities": {
         "scanner": {
-            "type": "fsang:ability_list",
+            "type": "palladium:command",
             "icon": "minecraft:written_book",
             "title": "Mental Detection",
             "bar_color": "light_gray",
