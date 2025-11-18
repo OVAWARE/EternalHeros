@@ -2,7 +2,7 @@
   "name": "Mindstone",
   "persistent_data": true,
   "background": "minecraft:textures/block/yellow_wool.png",
-  "icon": "fsang:textures/item/mind_stone.png",
+  "icon": "eternalheros:textures/item/mind_stone.png",
   "gui_display_type": "list",
 
   "abilities": {
@@ -10,13 +10,13 @@
     "clear_mind":{
       "hidden": true,
       "type": "palladium:command",
-      "commands": ["effect clear @s fsang:uncontrollable_movement"]
+      "commands": ["effect clear @s minecraft:slowness"]
     },
 
     "blinding":{
       "title": "Uncontrollable Movement",
       "type": "palladium:command",
-      "commands": ["execute as @e[distance=..10] run effect give @s fsang:uncontrollable_movement 10 0"],
+      "commands": ["execute as @e[distance=..10] run effect give @s minecraft:slowness 10 0"],
       "conditions":{
         "enabling":{
           "type": "palladium:toggle",

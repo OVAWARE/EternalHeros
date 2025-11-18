@@ -2,7 +2,7 @@
     "name": "Enchanter",
     "persistent_data": true,
     "background": "minecraft:textures/block/bookshelf.png",
-    "icon": "fsang:textures/icon/gui/powers/kratos.png",
+    "icon": "eternalheros:textures/icon/kratos.png",
     "gui_display_type": "tree",
     "abilities": {
         "protection1": {
@@ -726,7 +726,7 @@
         },
         "aqua_affinity2": {
             "title": "Aqua Affinity II",
-            "type": "fsang:mine_block",
+            "type": "palladium:command",
             "range": 10,
             "drop_items": true,
             "gui_position": [

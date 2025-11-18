@@ -82,12 +82,11 @@
             "ability": "strength_upgrade_tree"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
-}
-        ]
+           "type": "palladium:has_item",
+           "item": "eternalheros:tech_jacket",
+           "slot": "chest"
+          }
+          ]
       }
     },
     "strength_upgrade_2": {
@@ -113,12 +112,11 @@
             "ability": "strength_upgrade_1"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
-}
-        ]
+           "type": "palladium:has_item",
+           "item": "eternalheros:tech_jacket",
+           "slot": "chest"
+          }
+          ]
       }
     },
     "strength_upgrade_3": {
@@ -144,10 +142,7 @@
             "ability": "strength_upgrade_2"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -175,10 +170,7 @@
             "ability": "strength_upgrade_3"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -421,10 +413,7 @@
             "ability": "defense_upgrade_tree"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -452,10 +441,7 @@
             "ability": "health_upgrade_1"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -483,10 +469,7 @@
             "ability": "health_upgrade_2"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -514,10 +497,7 @@
             "ability": "health_upgrade_3"
           },
           {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -547,10 +527,7 @@
       "uuid": "7b142dd5-762d-4dc3-a976-af6cc8447f60",
       "conditions": {
         "unlocking": {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
 }
     },
@@ -577,10 +554,7 @@
             "ability": "mobility_upgrade_tree"
           },
                   {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -622,10 +596,7 @@
             "ability": "ability_upgrade_tree"
           },
                   {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 10
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
         ]
       }
@@ -657,10 +628,7 @@
             "ability": "ability_upgrade_tree"
           },
         {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 50
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
 
         ]
@@ -668,7 +636,7 @@
     },
     "sonic_blasters": {
       "type": "palladium:projectile",
-      "icon": "fsang:sonic_gun",
+      "icon": "eternalheros:textures/icon/tech_jacket.png",
       "title": "Sonic Blast",
       "bar_color": "light_gray",
       "hidden": false,
@@ -681,12 +649,12 @@
       "entity_data": {
         "Damage": 0,
         "Gravity": 0,
-        "CommandOnEntityHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=fsang:sound_mutation] at @s run effect give @s fsang:sound_poisoning 2 1 true",
-        "CommandOnBlockHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=fsang:sound_mutation] at @s run effect give @s fsang:sound_poisoning 2 1 true",
+        "CommandOnEntityHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=eternalheros:mind_stone] at @s run effect give @s minecraft:poison 2 1 true",
+        "CommandOnBlockHit": "execute as @e[distance=..2.5] unless entity @s[palladium.power=eternalheros:mind_stone] at @s run effect give @s minecraft:poison 2 1 true",
         "Appearances": [
           {
             "Type": "particles",
-            "ParticleType": "fsang:sound_wave",
+            "ParticleType": "minecraft:soul_fire_flame",
             "Spread": 0
           }
         ]
@@ -701,7 +669,7 @@
           {
             "type": "palladium:item_buyable",
             "ingredient": {
-                "item": "fsang:sonic_gun"
+                "item": "eternalheros:tech_jacket"
             },
             "amount": 1
           },
@@ -710,10 +678,7 @@
             "ability": "eletro_discharge"
           },
         {
-    "type": "fsang:rf_minimum_condition",
-    "curios_slot": "body",
-    "trinket_slot": "chest/necklace",
-    "min_rf": 50
+    "type": "palladium:has_item", "item": "eternalheros:tech_jacket", "slot": "chest",
 }
 
         ],
@@ -734,9 +699,7 @@
 
 
     "energy_drain_passive":{
-      "type": "fsang:drain_per_tick",
-      "curios_slot": "body",
-      "trinket_slot": "chest/necklace",
+      "type": "palladium:command",
       "energy_drain": 0.5,
       "conditions":
                                             {
@@ -746,9 +709,7 @@
                         }
     },
     "energy_drain_eletro_discharge":{
-      "type": "fsang:drain_per_tick",
-      "curios_slot": "body",
-      "trinket_slot": "chest/necklace",
+      "type": "palladium:command",
       "energy_drain": 1,
       "conditions":{
         "type": "ability_enabled",
@@ -756,9 +717,7 @@
       }
     },
     "energy_drain_sonic":{
-      "type": "fsang:drain_per_tick",
-      "curios_slot": "body",
-      "trinket_slot": "chest/necklace",
+      "type": "palladium:command",
       "energy_drain": 1,
       "conditions":{
         "type": "ability_enabled",

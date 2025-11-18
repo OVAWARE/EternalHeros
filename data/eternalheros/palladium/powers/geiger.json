@@ -2,7 +2,7 @@
     "name": "Nuclear Fission",
     "persistent_data": true,
     "background": "minecraft:textures/block/netherite_block.png",
-    "icon": "fsang:textures/icon/gui/powers/kratos.png",
+    "icon": "eternalheros:textures/icon/kratos.png",
     "gui_display_type": "tree",
     "energy_bars": {
         "nuclear_energy": {
@@ -615,8 +615,8 @@
             }
         },
         "charge":{
-            "type": "fsang:drain_per_tick",
-            "icon": "fsang:textures/icon/gui/powers/electrokinesis_charge.png",
+            "type": "palladium:command",
+            "icon": "minecraft:lightning_rod",
             "title": "Charge Item",
             "bar_color": "red",
             "gui_position": [
@@ -736,7 +736,7 @@
             }
         },
         "flight_speed_scaling": {
-            "type": "fsang:stat_ability",
+            "type": "palladium:command",
             "hidden": true,
             "Attribute_Type": "palladium:flight_speed",
             "score_value": "EternalHeros.NuclearFusion.energy",
@@ -791,7 +791,7 @@
             }
         },
         "strength_scaling": {
-            "type": "fsang:stat_ability",
+            "type": "palladium:command",
             "hidden": true,
             "Attribute_Type": "minecraft:generic.attack_damage",
             "score_value": "EternalHeros.NuclearFusion.energy",
@@ -1092,7 +1092,7 @@
         },
         "nuclear_explosion": {
             "hidden": true,
-            "type": "fsang:explosion",
+            "type": "palladium:command",
             "cause_fire": true,
             "radius": 50,
             "self_damage": 1,

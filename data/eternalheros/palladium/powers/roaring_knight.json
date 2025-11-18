@@ -2,7 +2,7 @@
   "name": "The Roaring Knight",
   "persistent_data": true,
   "background": "minecraft:textures/block/black_concrete.png",
-  "icon": "fsang:textures/icon/gui/powers/homelander.png",
+  "icon": "eternalheros:textures/icon/tech_jacket.png",
   "gui_display_type": "tree",
   "abilities": {
 
